@@ -11,7 +11,7 @@ console.log('runing @ 4000');
 
 app.get('/search',function (req, res)
 {
-var Header = {'Content-Type': 'application/json', 'Accept': 'application/json','Ighs-Language': 'en-GB' ,'Ighs-Appkey': 'trn:tesco:cid:mweb:uuid:A5EA1E42-1A9D-4262-8370-770B927D12E0'};
+var Header = {'Content-Type': 'application/json', 'Accept': 'application/json','Ighs-Language': 'en-GB' ,'Ighs-Appkey': 'abc'};
 console.log('https://s.tesco.pl/api/v1/search/products?query='+req.query.search);
 console.log(req.query.search);
 request.get({
