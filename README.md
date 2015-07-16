@@ -9,7 +9,9 @@ Install packages: npm install
 
 Install gulp globally :   npm install gulp -g
 
-Run gulp: gulp
+Run gulp: gulp 
+
+For more info on gulp [click here](http://www.smashingmagazine.com/2014/06/11/building-with-gulp/)
 
 Launch: node app
 
