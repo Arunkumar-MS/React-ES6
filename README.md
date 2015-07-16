@@ -15,3 +15,7 @@ Launch: node app
 
 Visit in your browser at: http://localhost:4000
 
+============================================
+New to React?
+============================================
+[ReactJS For Stupid People](http://blog.andrewray.me/reactjs-for-stupid-people)
