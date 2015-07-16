@@ -20,9 +20,9 @@ React.render(<Result1 list={JSON.parse(response)} /> , document.getElementById('
 
 
 }); */
-
+var search=React.findDOMNode(this.refs.search).value.trim();
 request.get({
-url: 'http://localhost:4000/search?search="cola"',
+url: 'http://localhost:4000/search?search='+search,
 headers: Header,
 rejectUnauthorized: false
 },
@@ -37,8 +37,8 @@ render()
 return (
 
 
-<div >  <h1 className="searchtxt" > Enter Search Item </h1>  <input ref="search" type="text" name="search1" className="form-control" />
-<input type="button"  className="btn btn-primary custom"  onClick={this.handleClick} value="search" />
+<div >  <h1 className="searchtxt" > Enter Search Item </h1>  <input ref="search" type="text"  className="form-control" />
+<input type="button"  className="btn btn-primary custom"  onClick={this.handleClick.bind(this)} value="search" />
 </div>
 
 
