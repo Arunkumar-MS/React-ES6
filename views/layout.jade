@@ -1,0 +1,11 @@
+doctype html
+html(
+  data-props=JSON.stringify(props)
+)
+  head
+    meta(charset='utf-8')
+    title=title
+    link(href='/styles/index.css' rel='stylesheet' type='text/css' media='all')
+  body
+    #content(class=component)!=content
+    script(src='./build/bundle.js')

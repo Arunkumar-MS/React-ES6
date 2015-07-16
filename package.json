@@ -1,0 +1,25 @@
+{
+  "name": "react-es6",
+  "version": "0.1.0",
+  "description": "Showcasing how to use React with ECMAScript 6",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/webpack/bin/webpack.js --progress "
+  },
+  "devDependencies": {
+    "babel-core": "^4.7.16",
+    "babel-loader": "^4.2.0",
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.4",
+    "gulp": "^3.9.0",
+    "vinyl-source-stream": "^1.1.0",
+    "webpack": "^1.7.3"
+  },
+  "dependencies": {
+    "ejs": "^2.3.1",
+    "express": "^4.12.4",
+    "react": "^0.13.0-rc2",
+    "request": "^2.57.0"
+  }
+}
