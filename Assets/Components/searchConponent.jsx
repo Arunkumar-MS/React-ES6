@@ -10,9 +10,7 @@ class Result extends React.Component {
 
         var Header = {
             'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Ighs-Language': 'en-GB',
-            'Ighs-Appkey': 'trn:tesco:cid:mweb:uuid:A5EA1E42-1A9D-4262-8370-770B927D12E0'
+            'Accept': 'application/json'
         };
         /*
          $.get('/search?search="cola"',
