@@ -21,4 +21,5 @@ Visit in your browser at: http://localhost:4000
 New to React?
 ============================================
 [Getting Started](https://blog.risingstack.com/the-react-way-getting-started-tutorial/)
+
 [ReactJS For Stupid People](http://blog.andrewray.me/reactjs-for-stupid-people)
