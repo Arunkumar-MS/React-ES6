@@ -1,5 +1,6 @@
 var express = require('express');
 var request = require('request');
+var config = require('./config')
 var app = express();
 app.set('views', __dirname + '\\views');
 console.log(__dirname + '\\views');
@@ -11,11 +12,11 @@ console.log('runing @ 4000');
 
 app.get('/search',function (req, res)
 {
-var Header = {'Content-Type': 'application/json', 'Accept': 'application/json','Ighs-Language': 'en-GB' ,'Ighs-Appkey': 'pass appkey'};
+var Header = {'Content-Type': 'application/json', 'Accept': 'application/json','Ighs-Language': 'en-GB' ,'Ighs-Appkey': config.Appkey};
 console.log('https://s.tesco.pl/api/v1/search/products?query='+req.query.search);
 console.log(req.query.search);
 request.get({
-url: 'https://s.tesco.pl/api/v1/search/products?query='+req.query.search,
+url: config.productApiUrl +req.query.search,
 headers: Header,
 rejectUnauthorized: false
 },
