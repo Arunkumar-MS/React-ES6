@@ -1,9 +1,19 @@
 import React from 'react';
 import request from 'request';
+import ProductDetail from './ProductDetail';
 
 
 class Result1 extends React.Component {
 
+    productDiscription(id)
+    {
+
+        React.render(<ProductDetail />, document.getElementById('result'));
+       // React.render(<productDetail /> , document.getElementById('result'));
+
+
+
+    }
     render() {
         return (
 
@@ -16,7 +26,7 @@ class Result1 extends React.Component {
                             <div className="caption">
 
                                 <h4 className="pull-right"> ${item.product.price} </h4>
-                                <h4><a href="#">{item.product.title}</a></h4>
+                                <h4><a onClick={this.productDiscription.bind(item.product.id)} href="#">{item.product.title}</a></h4>
 
                                 <p> {item.product.description }  </p>
                                 <input type="button" className="btn btn-primary add" value="add">
