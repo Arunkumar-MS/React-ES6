@@ -47,7 +47,8 @@ class Result1 extends React.Component {
                     );
 
                 }, this)}
-                <Paging />
+
+                { this.props.list.pageInformation.pageCount > this.props.list.pageInformation.pageNo ? <Paging /> :"" }
             </div>
 
         );
