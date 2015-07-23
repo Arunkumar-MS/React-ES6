@@ -20,7 +20,7 @@ class Result1 extends React.Component {
 
 
             <div className="row">
-                <Paging />
+
 
                 {this.props.list.productItems.map(function (item, i) {
                     return (
@@ -47,6 +47,7 @@ class Result1 extends React.Component {
                     );
 
                 }, this)}
+                <Paging />
             </div>
 
         );
