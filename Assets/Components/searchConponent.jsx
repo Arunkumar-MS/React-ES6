@@ -5,6 +5,13 @@ import Result1 from './plp';
 
 class Result extends React.Component {
 
+
+
+
+
+
+
+
     handleClick(e) {
 //console.log("search"+React.findDOMNode(this.refs.search).value);
 
@@ -12,15 +19,7 @@ class Result extends React.Component {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         };
-        /*
-         $.get('/search?search="cola"',
-         function ( response) {
 
-
-         React.render(<Result1 list={JSON.parse(response)} /> , document.getElementById('result'));
-
-
-         }); */
         var search = React.findDOMNode(this.refs.search).value.trim();
         request.get({
                 url: 'http://localhost:4000/search?search=' + search,
@@ -28,8 +27,11 @@ class Result extends React.Component {
                 rejectUnauthorized: false
             },
             function (error, response, body) {
-                React.render(<Result1 list={JSON.parse(body)}/>, document.getElementById('result'));
-            });
+
+
+
+                React.render(<Result1 list={JSON.parse(body)} data={search}/>, document.getElementById('result'));
+            }.bind(this));
 
 
     }
@@ -42,7 +44,9 @@ class Result extends React.Component {
                                                                              className="form-control"/>
                 <input type="button" className="btn btn-primary custom" onClick={this.handleClick.bind(this)}
                        value="search"/>
+
             </div>
+
 
 
         );

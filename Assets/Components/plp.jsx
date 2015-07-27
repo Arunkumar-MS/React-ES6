@@ -13,6 +13,12 @@ class Result1 extends React.Component {
 
     }
 
+
+
+
+
+
+
     render() {
 
         return (
@@ -48,7 +54,7 @@ class Result1 extends React.Component {
 
                 }, this)}
 
-                { this.props.list.pageInformation.pageCount > this.props.list.pageInformation.pageNo ? <Paging /> :"" }
+                { this.props.list.pageInformation.pageCount > this.props.list.pageInformation.pageNo ? <Paging data={this.props}  /> :"" }
             </div>
 
         );
