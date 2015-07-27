@@ -40,12 +40,20 @@ class Result extends React.Component {
         return (
 
 
-            <div ><h1 className="searchtxt"> Enter Search Item </h1>  <input ref="search" type="text"
-                                                                             className="form-control"/>
-                <input type="button" className="btn btn-primary custom" onClick={this.handleClick.bind(this)}
-                       value="search"/>
 
+            <div className="row">
+
+                <div>
+                    <div className="input-group">
+                        <input ref="search" type="text" className="form-control" placeholder="Search for items like - Milk"/>
+
+                        <span className="input-group-btn">
+                    <button className="btn btn-primary" type="button" onClick={this.handleClick.bind(this)}>Search</button>
+                  </span>
+                    </div>
+                </div>
             </div>
+
 
 
 
