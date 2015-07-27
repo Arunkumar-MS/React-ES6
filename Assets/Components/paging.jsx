@@ -35,7 +35,7 @@ class Paging extends React.Component {
         return (
 
             <button className="more btn btn-primary btn-block" onClick={this.loadMore.bind(this)}>
-                More <span className="caret"></span>
+               Load More Products <span className="caret"></span>
             </button>
         )}
 
