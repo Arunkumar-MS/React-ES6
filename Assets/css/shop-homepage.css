@@ -5,8 +5,7 @@
  */
 
 body {
-    padding: 0;
-    margin:0; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
 caption h4 {
@@ -44,8 +43,8 @@ text-align: center;
 }
 .add
 {
-    margin-top: 0.5em;
-    width: 100%;
+
+  width: 100%;
 }
 .ratings {
     padding-right: 10px;
@@ -59,7 +58,7 @@ width: 34%;
 }
 
 .thumbnail {
-    padding: 1em;
+    padding: 0;
 }
 
 .thumbnail .caption-full {
@@ -131,42 +130,4 @@ width: 34%;
 
 footer {
     margin: 50px 0;
-}
-
-/* to be moved to common css */
-#body{
-    margin: 0 3em;
-}
-img{
-    max-width:100%;
-}
-header{
-    margin: 3em 0 0;
-    padding-bottom: 2em;
-    border-bottom: 4px solid #2E6DA4;
-}
-#content{
-    margin: 2em 0;
-}
-#logo{
-    float: left;
-    height: 3em;
-  /*  width: 33.33333%;      */
-}
-#search, #filters, #result {
-    float: left;
-   /* width: 33.33333%;      */
-}
-
-.thumbnail a>img, .thumbnail>img{
-    margin-top: 1em;
-    margin-bottom: 1em;
-}
-
-.thumbnail .form-control{
-    height: 28px;
-}
-
-.thumbnail .caption h5{
-    min-height: 2em;
 }

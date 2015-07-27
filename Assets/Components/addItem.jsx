@@ -9,7 +9,7 @@ class AddItem extends React.Component {
 
             <div className="input-group">
           <span className="input-group-btn">
-              <button type="button" className="btn btn-default btn-number" data-type="minus" data-field="quant[2]">
+              <button type="button" className="btn btn-danger btn-number" data-type="minus" data-field="quant[2]">
                   <span className="glyphicon glyphicon-minus"></span>
               </button>
           </span>
@@ -18,7 +18,7 @@ class AddItem extends React.Component {
 
 
           <span className="input-group-btn">
-              <button type="button" className="btn btn-default btn-number" data-type="plus" data-field="quant[2]">
+              <button type="button" className="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
 
                   <span className="glyphicon glyphicon-plus"></span>
               </button>
