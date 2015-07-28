@@ -129,9 +129,6 @@ width: 34%;
 
 
 
-footer {
-    margin: 50px 0;
-}
 
 /* to be moved to common css */
 #body{
@@ -170,4 +167,22 @@ header{
 
 .thumbnail .caption h5{
     min-height: 2em;
+}
+footer{
+    background-color: #262626;
+    color: #aaaaaa;
+    margin-top: 2em;
+    padding: 0 2em;
+}
+footer ul{
+    padding: 2em;
+    border-bottom: 1px solid #aaaaaa;
+}
+footer li{
+    font-size: 1em;
+    list-style: none;
+    text-align: center;
+}
+.copyright{
+    margin-bottom: 1em;
 }
