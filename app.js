@@ -1,5 +1,4 @@
 var express = require('express');
-var request = require('request');
 var routes = require('./service/routes')
 var app = express();
 app.set('views', __dirname + '\\views');
