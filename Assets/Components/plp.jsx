@@ -3,6 +3,7 @@ import request from 'request';
 import ProductDetail from './ProductDetail';
 import Paging from './paging';
 import AddItem from './addItem'
+import Sorting from './sorting'
 
 class Result1 extends React.Component {
 
@@ -20,6 +21,8 @@ class Result1 extends React.Component {
 
 
             <div className="row">
+
+                <Sorting />
 
 
                 {this.props.list.productItems.map(function (item, i) {
