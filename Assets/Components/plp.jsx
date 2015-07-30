@@ -22,7 +22,7 @@ class Result1 extends React.Component {
 
             <div className="row">
 
-                <Sorting />
+                <Sorting item={this.props.data} />
 
 
                 {this.props.list.productItems.map(function (item, i) {
