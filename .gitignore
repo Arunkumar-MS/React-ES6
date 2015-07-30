@@ -1,6 +1,8 @@
 
 npm-debug.log
 
+/Assets/build/bundle.js
+
 node_modules
 *.xml
 *.iml
