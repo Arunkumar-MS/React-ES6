@@ -21,12 +21,13 @@ class Paging extends React.Component {
                 let result=  JSON.parse(body);
                 this.setState({
 
-                    items:search.list.productItems.concat(result.productItems),
-                    pageInfo:result.pageInformation
+                    productItems:search.productItems.concat(result.productItems),
+                    pageInformation:result.pageInformation
 
                 });
 
-                React.render(<Result1 list={{'productItems': this.state.items,'pageInformation':this.state.pageInfo}}/>, document.getElementById('result'));
+                React.render(<Result1 productItems={this.state.productItems} pageInformation={this.state.pageInformation}/>,
+                 document.getElementById('result'));
             }.bind(this));
 
 

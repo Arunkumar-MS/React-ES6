@@ -25,7 +25,7 @@ class Result1 extends React.Component {
                 <Sorting item={this.props.data} />
 
 
-                {this.props.list.productItems.map(function (item, i) {
+                {this.props.productItems.map(function (item, i) {
                     return (
                         <div className="col-sm-3 col-lg-3 col-md-3">
                             <div className="thumbnail">
@@ -51,7 +51,7 @@ class Result1 extends React.Component {
 
                 }, this)}
 
-                { this.props.list.pageInformation.pageCount > this.props.list.pageInformation.pageNo ? <Paging data={this.props}  /> :"" }
+                { this.props.pageInformation.pageCount > this.props.pageInformation.pageNo ? <Paging data={this.props}  /> :"" }
             </div>
 
         );

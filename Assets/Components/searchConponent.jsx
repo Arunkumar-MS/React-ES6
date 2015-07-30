@@ -22,7 +22,8 @@ class Result extends React.Component {
             function (error, response, body) {
 
 
-                React.render(<Result1 list={JSON.parse(body)} data={search}/>, document.getElementById('result'));
+                React.render(<Result1 productItems={JSON.parse(body).productItems} pageInformation={JSON.parse(body).pageInformation}
+                 data={search}/>, document.getElementById('result'));
             }.bind(this));
 
 
