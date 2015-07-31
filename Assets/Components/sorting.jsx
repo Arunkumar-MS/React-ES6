@@ -1,5 +1,6 @@
 import React from 'react'
-
+import request from 'request';
+import Result1 from './plp';
 
 class Sorting  extends React.Component
 {
@@ -31,6 +32,17 @@ class Sorting  extends React.Component
     }
 
     numberSort(e) {
+        switch (this.state.sortNumber) {
+
+            case true:
+                this.Sort('priceascending');
+                break;
+            case false:
+                this.Sort('pricedescending');
+                break;
+
+        }
+
 
         this.setState(
             {
@@ -40,14 +52,37 @@ class Sorting  extends React.Component
 
 
     }
-     Sort(sortBy)
-    {
 
 
-console.log(this.props.item +  sortBy);
+
+    Sort(sortBy) {
+//console.log("search"+React.findDOMNode(this.refs.search).value);
+
+        var Header = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        };
+
+        var search = this.props.item;
+        request.get({
+                url: 'http://localhost:4000/search?search=' + search+'&sortBy='+sortBy,
+                headers: Header,
+                rejectUnauthorized: false
+            },
+            function (error, response, body) {
+
+
+                React.render(<Result1 productItems={JSON.parse(body).productItems} pageInformation={JSON.parse(body).pageInformation}
+                                      data={search}/>, document.getElementById('result'));
+            }.bind(this));
+
+
 
 
     }
+
+
+
 
 
 
