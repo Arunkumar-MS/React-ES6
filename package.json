@@ -13,7 +13,10 @@
     "babelify": "^6.1.2",
     "browserify": "^10.2.4",
     "gulp": "^3.9.0",
+    "gulp-debug": "^2.0.1",
+    "gulp-util": "^3.0.3",
     "vinyl-source-stream": "^1.1.0",
+    "watchify": "^2.3.0",
     "webpack": "^1.7.3"
   },
   "dependencies": {
