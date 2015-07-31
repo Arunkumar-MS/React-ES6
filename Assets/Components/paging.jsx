@@ -12,8 +12,10 @@ class Paging extends React.Component {
         };
 
         var search = this.props.data;
+        var pageNo=search.pageInformation.pageNo+1;
+
         request.get({
-                url: 'http://localhost:4000/search?search=' + search.data,
+                url: 'http://localhost:4000/search?search=' + search.data+'&page='+pageNo,
                 headers: Header,
                 rejectUnauthorized: false
             },
@@ -26,7 +28,7 @@ class Paging extends React.Component {
 
                 });
 
-                React.render(<Result1 productItems={this.state.productItems} pageInformation={this.state.pageInformation}/>,
+                React.render(<Result1 productItems={this.state.productItems} pageInformation={this.state.pageInformation} data={search.data}/>,
                  document.getElementById('result'));
             }.bind(this));
 
