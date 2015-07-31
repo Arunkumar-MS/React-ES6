@@ -9,7 +9,7 @@ exports.search=function (req, res) {
         'Ighs-Appkey': config.Appkey
     };
 
-    var url=config.productApiUrl + req.query.search;
+    var url=config.productApiUrl + req.query.search+'&count='+40;
 
 
     if(req.query['sortBy'])
