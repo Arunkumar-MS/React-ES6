@@ -53,3 +53,22 @@ exports.productDetails=function (req, res) {
 
 
 }
+
+exports.sitenavigation=function (req, res) {
+    var Header = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Ighs-Language': 'en-GB',
+        'Ighs-Appkey': config.Appkey
+    };
+    request.get({
+            url: config.navigationUrl,
+            headers: Header,
+            rejectUnauthorized: false
+        },
+        function (error, response, body) {
+            res.send(body);
+        })
+
+
+}

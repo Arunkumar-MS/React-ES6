@@ -13,6 +13,7 @@ console.log('runing @ 4000');
 //#######################################################
 app.get('/search',routes.search);
 app.get('/ProductDetail',routes.productDetails);
+app.get('/navigation',routes.sitenavigation);
 app.get('/', function (req, res) {
     res.render('index.html');
 });
