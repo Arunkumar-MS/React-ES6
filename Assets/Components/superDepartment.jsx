@@ -10,10 +10,11 @@ class SuperDepartment extends React.Component {
                 superDepartment.push(item);
             }
         };
-        var superDepartmentMenu ='';
-         {superDepartment.map(function(sd){
-                    superDepartmentMenu += sd.name + '   ';
-                })};
+        document.getElementById('departmentMenu').style.display='block';
+
+        var superDepartmentMenu = superDepartment.map(function(sd){
+                  return  <a >{sd.name}</a>;
+                });
         return (<div>
                 {superDepartmentMenu}
             </div>

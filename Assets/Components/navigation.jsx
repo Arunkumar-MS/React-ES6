@@ -26,7 +26,7 @@ class Navigation extends React.Component {
             <div>
                 {this.props.items.map(function(item){
                     return (<div onClick={self.showSuperDepartment.bind(this)}>
-                        <span> {item}</span>
+                        <a>{item}</a>
                     </div>);
                 })}
 
