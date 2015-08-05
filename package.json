@@ -22,6 +22,7 @@
   "dependencies": {
     "ejs": "^2.3.1",
     "express": "^4.12.4",
+    "flux": "^2.0.3",
     "react": "^0.13.0-rc2",
     "request": "^2.57.0"
   }
