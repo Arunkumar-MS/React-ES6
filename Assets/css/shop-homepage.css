@@ -186,3 +186,48 @@ footer li{
 .copyright{
     margin-bottom: 1em;
 }
+
+
+
+#navigationMenu {
+    clear: both;
+    border-top: 4px solid #2E6DA4;
+    padding-left: 25px;
+}
+#navigationMenu div div{
+    display: inline;
+    clear: both;
+}
+#navigationMenu div div a {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #2E6DA4;
+    color:#ffffff;
+    cursor:pointer;
+    text-decoration:none;
+}
+#navigationMenu div div a:hover {
+    background-color: #fff;
+    color: #2E6DA4;
+}
+#departmentMenu{
+    display: none;
+}
+#departmentMenu {
+    border: 2px solid #2E6DA4;
+    padding: 5px;
+    margin-top: -2px;
+    z-index: -1;
+}
+#departmentMenu div {
+    display: block;
+    clear: both;
+    background-color: aliceblue;
+}
+#departmentMenu div a{
+    display:block;
+}
+#navigationMenu div div a:first-child {
+    border-left: 2px solid #2E6DA4;
+    border-right: 2px solid #2E6DA4;
+}
