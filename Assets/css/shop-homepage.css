@@ -186,7 +186,23 @@ footer li{
 .copyright{
     margin-bottom: 1em;
 }
-
+.sort{
+    margin: 0 0 10px 10px;
+}
+.sort .sortSection{
+    float: right;
+    border: 1px solid #DDD;
+    border-radius: 6px;
+    line-height: 25px;
+    padding: 0 5px;
+}
+.sort .sortSection a{
+    border-left: 1px solid #DDD;
+    padding: 4px 2px;
+}
+.sort .sortSection span{
+    padding: 4px 2px;
+}
 
 
 #navigationMenu {

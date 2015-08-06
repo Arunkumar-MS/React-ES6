@@ -18,11 +18,12 @@ class Result1 extends React.Component {
 
         return (
 
+             <div>
+                 <Sorting item={this.props.data} productInfo={this.props.pageInformation} />
+
+             <div className="row">
 
 
-            <div className="row">
-
-                <Sorting item={this.props.data} productInfo={this.props.pageInformation} />
 
 
                 {this.props.productItems.map(function (item, i) {
@@ -39,7 +40,7 @@ class Result1 extends React.Component {
                                     <h5 ><strong>$ {item.product.price}</strong> </h5>
 
 
-                                    <AddItem defaultQty={item.product.averageWeight}/>
+                                    <AddItem />
 
 
                                     <input type="button" className="btn btn-primary add" value="Add to Basket">
@@ -53,7 +54,7 @@ class Result1 extends React.Component {
 
                 { this.props.pageInformation.pageCount > this.props.pageInformation.pageNo ? <Paging data={this.props}  /> :"" }
             </div>
-
+             </div>
         );
     }
 }

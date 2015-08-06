@@ -92,11 +92,11 @@ render() {
 
     return (
 
-    <div>
+    <div className="clearFix sort">
 
 
 
-            <div className="btn-group">
+            <div className="sortSection">
                 <span>Sort By</span>
                 <a onClick={this.numberSort.bind(this)} href="javascript:void(0)"><span className={this.state.sortNumber == true ? "glyphicon glyphicon-sort-by-order" :"glyphicon glyphicon-sort-by-order-alt"}></span> Price </a>
                 <a onClick={this.alphabeticalSort.bind(this)} href="javascript:void(0)"><span className={this.state.sortAlphabetical == true ? "glyphicon glyphicon-sort-by-alphabet" :"glyphicon glyphicon-sort-by-alphabet-alt"}></span> Name </a>
