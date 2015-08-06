@@ -2,15 +2,15 @@
 import React from 'react';
 
 class AddItem extends React.Component {
-    constructor() {
+    constructor(props) {
         super();
-        this.state = { quantity: 1}
+        this.state = { quantity: props.defaultQty}
     }
     incrementQty(){
-        this.setState({quantity: this.state.quantity+1})
+        this.setState({quantity: this.state.quantity + this.props.defaultQty})
     }
     decrementQty(){
-        this.setState({quantity: this.state.quantity != 1 ? this.state.quantity-1: this.state.quantity})
+        this.setState({quantity: this.state.quantity !== this.props.defaultQty ? this.state.quantity-this.props.defaultQty:this.props.defaultQty})
     }
     render() {
         return (

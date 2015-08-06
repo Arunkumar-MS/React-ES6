@@ -96,10 +96,10 @@ render() {
 
 
 
-            <div class="per-page">
-
-                <a className={this.state.sortNumber == true ? "priceascending" :"pricedescending"} onClick={this.numberSort.bind(this)} href="javascript:void(0)">{this.state.sortNumber == 1 ? "priceascending" :"pricedescending"} </a>
-                <a className={this.state.sortAlphabetical == true ? "titleascending" :"titledescending"} onClick={this.alphabeticalSort.bind(this)} href="javascript:void(0)">{this.state.sortAlphabetical == 1 ? "titleascending" :"titledescending"}</a>
+            <div className="btn-group">
+                <span>Sort By</span>
+                <a onClick={this.numberSort.bind(this)} href="javascript:void(0)"><span className={this.state.sortNumber == true ? "glyphicon glyphicon-sort-by-order" :"glyphicon glyphicon-sort-by-order-alt"}></span> Price </a>
+                <a onClick={this.alphabeticalSort.bind(this)} href="javascript:void(0)"><span className={this.state.sortAlphabetical == true ? "glyphicon glyphicon-sort-by-alphabet" :"glyphicon glyphicon-sort-by-alphabet-alt"}></span> Name </a>
 
 
         </div>
