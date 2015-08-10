@@ -40,7 +40,7 @@ class Result1 extends React.Component {
                                     <h5 ><strong>$ {item.product.price}</strong> </h5>
 
 
-                                    <AddItem />
+                                    <AddItem defaultQty={item.product.averageWeight}/>
 
 
                                     <input type="button" className="btn btn-primary add" value="Add to Basket">
