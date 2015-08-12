@@ -8,14 +8,17 @@ class Result extends React.Component {
 
     constructor() {
         super();
-        this.state = {test: 'hello'}
+        this.state = {test: 'hello'};
+
+        this._onChange = this._onChange.bind(this);
     }
 
     _onChange() {
 
+        this.setState({test: 'changed'});
         React.render(<Result1 productItems={JSON.parse(getProducts()).productItems}
                               pageInformation={JSON.parse(getProducts()).pageInformation}
-                              data={searchQuery}/>, document.getElementById('result'));
+                              data={React.findDOMNode(this.refs.search).value.trim()}/>, document.getElementById('result'));
     }
 
     handleClick(e) {
