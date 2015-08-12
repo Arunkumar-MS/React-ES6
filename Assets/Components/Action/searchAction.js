@@ -1,8 +1,8 @@
-import AppDispatcher from './Dispatcher'
+import AppDispatcher from '../Common/Dispatcher'
 import request from 'request';
 
 
-var searchData;
+var result;
 
 export function searchData(query) {
 
@@ -18,7 +18,7 @@ export function searchData(query) {
         },
         function (error, response, body) {
 
-            searchData=body;
+            result=body;
             AppDispatcher.handleViewAction({
                 actionType: 'GET_SEARCH_DATA',
                 data: query
@@ -32,5 +32,5 @@ export function searchData(query) {
 export function getProducts()
 {
 
-    return searchData;
+    return result;
 }

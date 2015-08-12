@@ -1,9 +1,9 @@
 import React from 'react';
 import request from 'request';
 import Result1 from './plp';
-import {searchData , getProducts} from './searchAction';
-import event from './searchStore';
-
+import {searchData , getProducts} from './Action/searchAction';
+import event from './Store/searchStore';
+var searchQuery;
 class Result extends React.Component {
 
     constructor() {
@@ -12,14 +12,16 @@ class Result extends React.Component {
     }
 
     _onChange() {
-     
+
         React.render(<Result1 productItems={JSON.parse(getProducts()).productItems}
                               pageInformation={JSON.parse(getProducts()).pageInformation}
-                              data={search}/>, document.getElementById('result'));
+                              data={searchQuery}/>, document.getElementById('result'));
     }
 
     handleClick(e) {
-        searchData(React.findDOMNode(this.refs.search).value.trim());
+
+        searchQuery= React.findDOMNode(this.refs.search).value.trim();
+        searchData(searchQuery);
 
     }
 

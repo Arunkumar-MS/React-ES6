@@ -1,4 +1,4 @@
-import AppDispatcher from './Dispatcher';
+import AppDispatcher from '../Common/Dispatcher';
 import assign from'object-assign';
 import {EventEmitter} from  'events';
 var CHANGE_EVENT = 'change';
