@@ -11,22 +11,23 @@ var CHANGE_EVENT = 'change';
 var event = assign({}, EventEmitter.prototype, {
 
 
-    emitChange: function() {
-        this.emit(CHANGE_EVENT);
+
+    emitChange: function(_event=CHANGE_EVENT) {
+        this.emit(_event);
     },
 
     /**
      * @param {function} callback
      */
-    addChangeListener: function(callback) {
-        this.on(CHANGE_EVENT, callback);
+    addChangeListener: function(callback,_event=CHANGE_EVENT) {
+        this.on(_event, callback);
     },
 
     /**
      * @param {function} callback
      */
-    removeChangeListener: function(callback) {
-        this.removeListener(CHANGE_EVENT, callback);
+    removeChangeListener: function(callback,_event=CHANGE_EVENT) {
+        this.removeListener(_event, callback);
     }
 });
 
@@ -43,6 +44,15 @@ AppDispatcher.register(function(action) {
                 event.emitChange();
             }
             break;
+        case 'NEXT_PAGE':
+            text = action.action.data.trim();
+            if (text !== '') {
+
+                event.emitChange('PageChange');
+            }
+            break;
+
+
     }
 });
 
