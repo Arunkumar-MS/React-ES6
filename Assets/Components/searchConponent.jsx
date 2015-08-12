@@ -1,31 +1,25 @@
 import React from 'react';
 import request from 'request';
 import Result1 from './plp';
+import {searchData , getProducts} from './searchAction';
+import event from './searchStore';
 
 class Result extends React.Component {
 
+    constructor() {
+        super();
+        this.state = {test: 'hello'}
+    }
+
+    _onChange() {
+     
+        React.render(<Result1 productItems={JSON.parse(getProducts()).productItems}
+                              pageInformation={JSON.parse(getProducts()).pageInformation}
+                              data={search}/>, document.getElementById('result'));
+    }
 
     handleClick(e) {
-//console.log("search"+React.findDOMNode(this.refs.search).value);
-
-        var Header = {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        };
-
-        var search = React.findDOMNode(this.refs.search).value.trim();
-        request.get({
-                url: 'http://localhost:4000/search?search=' + search,
-                headers: Header,
-                rejectUnauthorized: false
-            },
-            function (error, response, body) {
-
-
-                React.render(<Result1 productItems={JSON.parse(body).productItems} pageInformation={JSON.parse(body).pageInformation}
-                 data={search}/>, document.getElementById('result'));
-            }.bind(this));
-
+        searchData(React.findDOMNode(this.refs.search).value.trim());
 
     }
 
@@ -33,24 +27,38 @@ class Result extends React.Component {
         return (
 
 
-                <div className="row">
+            <div className="row">
+                <span> {this.state.test}</span>
 
-                    <div>
-                        <div className="input-group">
-                            <input ref="search" type="text" className="form-control"
-                                   placeholder="Search for items like - Milk"/>
+                <div>
+                    <div className="input-group">
+                        <input ref="search" type="text" className="form-control"
+                               placeholder="Search for items like - Milk"/>
 
                         <span className="input-group-btn">
                     <button className="btn btn-primary" type="button" onClick={this.handleClick.bind(this)}>Search
                     </button>
                   </span>
-                        </div>
                     </div>
                 </div>
+            </div>
 
 
 
         );
     }
+
+
+    componentWillMount() {
+
+
+        event.addChangeListener(this._onChange);
+    }
+
+
+    componentWillUnmount() {
+        event.removeChangeListener(this._onChange);
+    }
+
 }
 export default Result;
