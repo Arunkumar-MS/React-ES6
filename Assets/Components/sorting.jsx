@@ -1,6 +1,8 @@
 import React from 'react'
 import request from 'request';
 import Result1 from './plp';
+import {sortProducts , getSortedProducts} from './Action/sortAction';
+import event from './Store/sortStore';
 
 class Sorting  extends React.Component
 {
@@ -8,105 +10,72 @@ class Sorting  extends React.Component
     constructor() {
         super();
         this.state = { sortAlphabetical: true , sortNumber : true }
+
+        this._onSortChange = this._onSortChange.bind(this);
     }
 
-    alphabeticalSort(e) {
+    _onSortChange() {
 
-        switch (this.state.sortAlphabetical) {
+       // this.setState({test: 'changed sort'});
+        React.render(<Result1 productItems={JSON.parse(getSortedProducts()).productItems} pageInformation={JSON.parse(getSortedProducts()).pageInformation}
+            data={this.props.item}/>, document.getElementById('result'));
+    }
 
-            case true:
-            this.Sort('titleascending');
-                break;
-            case false:
-                this.Sort('titledescending');
-                break;
+    handleClick(sortBy, sortAs){
+
+        var searchQuery= this.props.item;
+        if(sortAs === "price") {
+            sortBy === true ? sortProducts(searchQuery, "priceascending") : sortProducts(searchQuery, "pricedescending");
+            this.setState(
+                {
+
+                    sortNumber: !(this.state.sortNumber)
+                });
+        }
+        else if(sortAs === "alphabetical") {
+            sortBy === true ? sortProducts(searchQuery, "titleascending") : sortProducts(searchQuery, "titledescending");
+            this.setState(
+                {
+                    sortAlphabetical: !(this.state.sortAlphabetical)
+
+                });
+        }
+        else{
 
         }
-        this.setState(
-            {
-                sortAlphabetical: !(this.state.sortAlphabetical)
-
-            });
-
 
     }
 
-    numberSort(e) {
-        switch (this.state.sortNumber) {
+    render() {
 
-            case true:
-                this.Sort('priceascending');
-                break;
-            case false:
-                this.Sort('pricedescending');
-                break;
+        return (
 
+            <div className="clearFix sort">
+
+
+
+                    <div className="sortSection">
+                        <span>Sort By</span>
+                        <a onClick={this.handleClick.bind(this, !this.state.sortNumber, "price")} href="javascript:void(0)"><span className={this.state.sortNumber == true ? "glyphicon glyphicon-sort-by-order" :"glyphicon glyphicon-sort-by-order-alt"}></span> Price </a>
+                        <a onClick={this.handleClick.bind(this, !this.state.sortAlphabetical, "alphabetical")} href="javascript:void(0)"><span className={this.state.sortAlphabetical == true ? "glyphicon glyphicon-sort-by-alphabet" :"glyphicon glyphicon-sort-by-alphabet-alt"}></span> Name </a>
+
+
+                </div>
+
+            </div>);
         }
 
+    componentWillMount() {
 
-        this.setState(
-            {
-
-                sortNumber: !(this.state.sortNumber)
-            });
-
+        event.addChangeListener(this._onSortChange, 'SortChange');
 
     }
 
+    componentWillUnmount() {
 
-
-    Sort(sortBy) {
-//console.log("search"+React.findDOMNode(this.refs.search).value);
-
-        var Header = {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        };
-
-        var search = this.props.item;
-        request.get({
-                url: 'http://localhost:4000/search?search=' + search+'&sortBy='+sortBy,
-                headers: Header,
-                rejectUnauthorized: false
-            },
-            function (error, response, body) {
-
-
-                React.render(<Result1 productItems={JSON.parse(body).productItems} pageInformation={JSON.parse(body).pageInformation}
-                                      data={search}/>, document.getElementById('result'));
-            }.bind(this));
-
-
-
+        event.removeChangeListener(this._onSortChange, 'SortChange');
 
     }
-
-
-
-
-
-
-
-
-render() {
-
-    return (
-
-    <div className="clearFix sort">
-
-
-
-            <div className="sortSection">
-                <span>Sort By</span>
-                <a onClick={this.numberSort.bind(this)} href="javascript:void(0)"><span className={this.state.sortNumber == true ? "glyphicon glyphicon-sort-by-order" :"glyphicon glyphicon-sort-by-order-alt"}></span> Price </a>
-                <a onClick={this.alphabeticalSort.bind(this)} href="javascript:void(0)"><span className={this.state.sortAlphabetical == true ? "glyphicon glyphicon-sort-by-alphabet" :"glyphicon glyphicon-sort-by-alphabet-alt"}></span> Name </a>
-
-
-        </div>
-
-    </div>);
-}
-
 
 }
 

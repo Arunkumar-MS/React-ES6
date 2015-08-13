@@ -3,8 +3,10 @@ import React from 'react';
 
 class AddItem extends React.Component {
     constructor(props) {
-        super();
-        this.state = { quantity: props.defaultQty}
+        super(props);
+        this.state = { quantity: this.props.defaultQty}
+
+
     }
     incrementQty(){
         this.setState({quantity: this.state.quantity + this.props.defaultQty})
@@ -31,6 +33,12 @@ class AddItem extends React.Component {
                 </span>
             </div>
         )
+    }
+    componentWillMount() {
+
+
+
+        this.setState({quantity: this.props.defaultQty}) ;
     }
 }
 
