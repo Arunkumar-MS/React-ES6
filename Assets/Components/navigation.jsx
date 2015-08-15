@@ -1,31 +1,40 @@
 import React from 'react';
 import request from 'request';
 import SuperDepartment from './superDepartment';
+import {getMenuData , getMenu} from './Action/navigationAction';
+import event from './Store/navigationStore';
 
 class Navigation extends React.Component {
-    showSuperDepartment(){
-        var Header = {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        };
+    
+      constructor() {
+        super();
+        this.state = {test: 'hello'};
 
-        request.get({
-                url: 'http://localhost:4000/navigation',
-                headers: Header,
-                rejectUnauthorized: false
-            },
-            function (error, response, body) {
-                var menuItems = JSON.parse(body);
-                
-                React.render(<SuperDepartment menuItems={menuItems} />, document.getElementById('departmentMenu'));
-            }.bind(this));
+        this._onChange = this._onChange.bind(this);
+    }
+    _onChange() {
+        this.setState({test: 'changed'});
+        React.render(<SuperDepartment menuItems={JSON.parse(getMenu())} />, document.getElementById('departmentMenu'));
+    }
+
+    componentWillMount() {
+        event.addChangeListener(this._onChange);
+    }
+
+    componentWillUnmount() {
+        event.removeChangeListener(this._onChange);
+    }
+    handleClick(name, e) {
+        if(name == 'Groceries'){
+          getMenuData();
+        }
     }
     render() {
         var self = this;
         return (
             <div>
                 {this.props.items.map(function(item){
-                    return (<div onClick={self.showSuperDepartment.bind(this)}>
+                    return (<div onClick={self.handleClick.bind(this, item)}>
                         <a>{item}</a>
                     </div>);
                 })}
@@ -36,6 +45,5 @@ class Navigation extends React.Component {
 }
 
 Navigation.defaultProps = {items: ['Groceries','Promotions','Favourites','MyOrder']};
-
 
 export default Navigation;
