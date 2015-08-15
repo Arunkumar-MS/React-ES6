@@ -28,6 +28,8 @@ class Navigation extends React.Component {
         if(name == 'Groceries'){
           getMenuData();
         }
+        
+        document.getElementById('departmentMenu').style.display='none';
     }
     render() {
         var self = this;
