@@ -203,7 +203,15 @@ footer li{
 .sort .sortSection span{
     padding: 4px 2px;
 }
-
+.product {
+    position: relative;
+}
+.product .productBtm {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin:20px;
+}
 
 #navigationMenu {
     clear: both;

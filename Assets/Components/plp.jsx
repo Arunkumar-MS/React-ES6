@@ -28,8 +28,8 @@ class Result1 extends React.Component {
 
                 {this.props.productItems.map(function (item, i) {
                     return (
-                        <div className="col-sm-3 col-lg-3 col-md-3">
-                            <div className="thumbnail">
+                        <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                            <div className="thumbnail product">
                                 <img className="img-responsive" src={item.product.defaultImageUrl} alt="product"></img>
 
                                 <div className="caption">
@@ -39,12 +39,13 @@ class Result1 extends React.Component {
                                            href="#">{item.product.title}</a></h5>
                                     <h5 ><strong>$ {item.product.price}</strong> </h5>
 
+                                    <div className="productBtm">
+                                        <AddItem key={item.product.id} defaultQty={item.product.averageWeight}/>
 
-                                    <AddItem key={item.product.id} defaultQty={item.product.averageWeight}/>
 
-
-                                    <input type="button" className="btn btn-primary add" value="Add to Basket">
-                                    </input>
+                                        <input type="button" className="btn btn-primary add" value="Add to Basket">
+                                        </input>
+                                    </div>
                                 </div>
                             </div>
                         </div>
