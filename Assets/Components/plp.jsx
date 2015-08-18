@@ -2,8 +2,9 @@ import React from 'react';
 import request from 'request';
 import ProductDetail from './ProductDetail';
 import Paging from './paging';
-import AddItem from './addItem'
-import Sorting from './sorting'
+import AddItem from './addItem';
+import Sorting from './sorting';
+import Filters from './Filters';
 
 class Result1 extends React.Component {
 
@@ -19,7 +20,11 @@ class Result1 extends React.Component {
         return (
 
              <div>
+               <div id="filters" className="col-sm-2 col-lg-2 col-md-2"> 
+                 <Filters facetLists={this.props.facetLists}/></div>
+                 <div className="col-sm-10 col-lg-10 col-md-10">
                  <Sorting item={this.props.data} productInfo={this.props.pageInformation} />
+
 
              <div className="row">
 
@@ -54,6 +59,7 @@ class Result1 extends React.Component {
                 }, this)}
 
                 { this.props.pageInformation.pageCount > this.props.pageInformation.pageNo ? <Paging data={this.props}  /> :"" }
+                </div>
             </div>
              </div>
         );

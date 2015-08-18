@@ -280,3 +280,9 @@ footer li{
     border-left: 2px solid #2E6DA4;
     border-right: 2px solid #2E6DA4;
 }
+#filters ul{
+    padding-left: 0;
+}
+#filters ul li{
+    list-style: none;
+}

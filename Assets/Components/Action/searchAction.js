@@ -43,6 +43,5 @@ export function searchData(query , pageNo=1) {
 
 export function getProducts()
 {
-
     return result;
 }

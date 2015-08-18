@@ -18,6 +18,7 @@ class Result extends React.Component {
         this.setState({test: 'changed'});
         React.render(<Result1 productItems={JSON.parse(getProducts()).productItems}
                               pageInformation={JSON.parse(getProducts()).pageInformation}
+                              facetLists={JSON.parse(getProducts()).facetLists}
                               data={React.findDOMNode(this.refs.search).value.trim()}/>, document.getElementById('result'));
     }
 
