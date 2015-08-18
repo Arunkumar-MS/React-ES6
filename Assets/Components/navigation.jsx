@@ -30,6 +30,7 @@ class Navigation extends React.Component {
         }
         
         document.getElementById('departmentMenu').style.display='none';
+        document.getElementById('subDepartmentMenu').style.display='none';
     }
     render() {
         var self = this;
