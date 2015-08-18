@@ -56,8 +56,8 @@ class Sorting  extends React.Component
 
                     <div className="sortSection">
                         <span>Sort By</span>
-                        <a onClick={this.handleClick.bind(this, !this.state.sortNumber, "price")} href="javascript:void(0)"><span className={this.state.sortNumber == true ? "glyphicon glyphicon-sort-by-order" :"glyphicon glyphicon-sort-by-order-alt"}></span> Price </a>
-                        <a onClick={this.handleClick.bind(this, !this.state.sortAlphabetical, "alphabetical")} href="javascript:void(0)"><span className={this.state.sortAlphabetical == true ? "glyphicon glyphicon-sort-by-alphabet" :"glyphicon glyphicon-sort-by-alphabet-alt"}></span> Name </a>
+                        <a onClick={this.handleClick.bind(this, !this.state.sortNumber, "price")} href="javascript:void(0)"><span className={this.state.sortNumber == true ? "glyphicon glyphicon-sort-by-order-alt" :"glyphicon glyphicon-sort-by-order"}></span> Price </a>
+                        <a onClick={this.handleClick.bind(this, !this.state.sortAlphabetical, "alphabetical")} href="javascript:void(0)"><span className={this.state.sortAlphabetical == true ? "glyphicon glyphicon-sort-by-alphabet-alt" :"glyphicon glyphicon-sort-by-alphabet"}></span> Name </a>
 
 
                 </div>

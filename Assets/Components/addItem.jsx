@@ -35,9 +35,6 @@ class AddItem extends React.Component {
         )
     }
     componentWillMount() {
-
-
-
         this.setState({quantity: this.props.defaultQty}) ;
     }
 }
