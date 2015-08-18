@@ -33,7 +33,6 @@ class Result extends React.Component {
 
 
             <div className="row">
-                <span> {this.state.test}</span>
 
                 <div>
                     <div className="input-group">

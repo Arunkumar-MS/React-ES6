@@ -137,6 +137,11 @@ width: 34%;
 img{
     max-width:100%;
 }
+.hide{
+    position: absolute;
+    left: -5000px;
+    top: -5000px;
+}
 header{
     margin: 3em 0 0;
     padding-bottom: 2em;
@@ -211,6 +216,26 @@ footer li{
     left: 0;
     bottom: 0;
     margin:20px;
+}
+#miniBasket{
+    float: left;
+    margin: -25px 1% 1% 6%;
+}
+#miniBasket .itemsCount  {
+    background: transparent url("../image/miniBasket.png") no-repeat scroll center;
+    color: #2E6DA4;
+    height: 45px;
+    font-size: 16px;
+    padding-top: 10px;
+}
+#miniBasket .miniBasketBody h2, #miniBasket .miniBasketBody dl{
+    padding: 0 10px;
+    font-size: 16px;
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+    color: #4E4D4D;
+    line-height: 20px;
 }
 
 #navigationMenu {
