@@ -17,7 +17,7 @@ class Sorting  extends React.Component
     _onSortChange() {
 
        // this.setState({test: 'changed sort'});
-        React.render(<Result1 productItems={JSON.parse(getSortedProducts()).productItems} pageInformation={JSON.parse(getSortedProducts()).pageInformation}
+        React.render(<Result1 productItems={JSON.parse(getSortedProducts()).productItems}  facetLists={JSON.parse(getSortedProducts()).facetLists} pageInformation={JSON.parse(getSortedProducts()).pageInformation}
             data={this.props.item}/>, document.getElementById('result'));
     }
 
