@@ -23,3 +23,7 @@ New to React?
 [Getting Started](https://blog.risingstack.com/the-react-way-getting-started-tutorial/)
 
 [ReactJS For Stupid People](http://blog.andrewray.me/reactjs-for-stupid-people)
+
+[Flux For Stupid People](http://blog.andrewray.me/flux-for-stupid-people/)
+
+
