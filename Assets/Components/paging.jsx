@@ -25,10 +25,10 @@ class Paging extends React.Component {
 
             productItems: search.productItems.concat(result.productItems),
             pageInformation: result.pageInformation
-
+,
         });
 
-        React.render(<Result1 productItems={this.state.productItems} pageInformation={this.state.pageInformation}
+        React.render(<Result1 productItems={this.state.productItems} facetLists={result.facetLists} pageInformation={this.state.pageInformation}
                               data={search.data}/>,
             document.getElementById('result'));
 

@@ -144,8 +144,6 @@ img{
 }
 header{
     margin: 3em 0 0;
-    padding-bottom: 2em;
-    border-bottom: 4px solid #2E6DA4;
 }
 #content{
     margin: 2em 0;
@@ -240,7 +238,7 @@ footer li{
 
 #navigationMenu {
     clear: both;
-    border-bottom: 2px solid #2E6DA4;
+    border-bottom: 4px solid #2E6DA4;
     padding-left: 25px;
     height: 42px;
 }
