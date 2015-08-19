@@ -240,7 +240,7 @@ footer li{
     clear: both;
     border-bottom: 4px solid #2E6DA4;
     padding-left: 25px;
-    height: 42px;
+    height: 44px;
 }
 
 #navigationMenu div div{
@@ -268,31 +268,48 @@ footer li{
 
 #departmentMenu {
     padding: 5px;
-    margin-top: -2px;
+    margin-top: 0px;
     z-index: -1;
+    background-color: rgb(249, 249, 249);
+    border-bottom: 1px solid #333;
+    display: inline-block;
+    float: left;
     width: 250px;
 }
 
 #departmentMenu div {
     display: block;
     clear: both;
+    width:250px;
 }
 
-#departmentMenu div a{
-        border-bottom: #d9d9d9 solid 1px;
-            min-height: 40px;
-    display:block;
+#departmentMenu div a, #subDepartmentMenu div a,  #aisle div a{
+    border-bottom: #d9d9d9 solid 1px;
+    min-height: 40px;
+    display: block;
     padding: 2px 5px;
     cursor: pointer;
+    line-height: 30px;
+    background-color: #f1f1f1;
+}
+#departmentMenu div a:hover,  #subDepartmentMenu div a:hover, #aisle div a:hover{
+    border-bottom: #d9d9d9 solid 1px;
+    min-height: 40px;
+    display: block;
+    padding: 2px 5px;
+    cursor: pointer;
+    line-height: 30px;
+    background-color: #2E6DA4;
+    color: #fff;
 }
 
 #navigationMenu div div a:first-child {
-    border-left: 2px solid #2E6DA4;
-    border-right: 2px solid #2E6DA4;
-    border-top: 2px solid #2E6DA4;
+    border-left: 4px solid #2E6DA4;
+    border-right: 3px solid #2E6DA4;
+    border-top: 4px solid #2E6DA4;
 }
 
-#departmentMenu div a:hover{
+#departmentMenu div a:active, #subDepartmentMenu div a:active{
     background-color: #337ab7;
     color: #fff;
     padding: 2px 5px;
@@ -306,9 +323,11 @@ footer li{
 
 #subDepartmentMenu {
     padding: 5px;
-    margin-top: -2px;
+    padding-right:0px;
+    margin-top: 0px;
     z-index: -1;
     width: 250px;
+    padding-left: -7px;
 }
 
 #subDepartmentMenu div {
@@ -316,13 +335,60 @@ footer li{
     clear: both;
 }
 
-#subDepartmentMenu div a{
-        border-bottom: #d9d9d9 solid 1px;
-            min-height: 40px;
+#subDepartmentMenu div a, #aisle div a{
+    border-bottom: #d9d9d9 solid 1px;
+    min-height: 40px;
     display:block;
     padding: 2px 5px;
     cursor: pointer;
 }
 .whitetext{
     color: white
+}
+
+
+#subDepartmentMenu{
+    display: block;
+    width: 250px;
+    float: left;
+}
+#aisle
+{
+    width: 250px;
+    float: left;
+    padding-left: 0px;
+    padding-top: 5px;
+}
+
+
+
+
+
+
+
+.first li{
+    float: left;
+    margin:0 1px;
+}
+.first li,
+.second li,
+.third li{
+    position: relative;
+}
+.first li a,
+.second li a,
+.third li a
+{
+    display:  block;
+}
+.second ul,
+.third ul{
+    display: none;
+}
+.second a:active + ul,
+.third a:active + ul{
+    display: block;
+    postion:absolute;
+    top:0;
+    left:0;
 }

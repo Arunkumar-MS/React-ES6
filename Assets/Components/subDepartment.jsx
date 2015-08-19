@@ -18,7 +18,7 @@ class SubDepartment extends React.Component {
     }
    render() {
         var self=this;
-        document.getElementById('subDepartmentMenu').style.display='none';
+        document.getElementById('subDepartmentMenu').style.display='block';
 
         var subDepartmentMenu = this.props.departments.map(function(sd){
             return <a onClick={self.renderAisle.bind(this,self.props.menuItems)}>{sd.name}</a>;
