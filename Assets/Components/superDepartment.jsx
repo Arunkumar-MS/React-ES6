@@ -29,7 +29,7 @@ class SuperDepartment extends React.Component {
 
         
         var superDepartmentMenu = superDepartment.map(function(sd){
-            return  <a onClick={self.renderDepartment.bind(this,self.props.menuItems)}>{sd.name}</a>;
+            return  (<a onClick={self.renderDepartment.bind(this,self.props.menuItems)}>{sd.name}</a>);
 
         });
         return (<div>

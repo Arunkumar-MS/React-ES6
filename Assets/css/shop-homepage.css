@@ -269,7 +269,6 @@ footer li{
 }
 
 #departmentMenu {
-    border: 1px solid #2E6DA4;
     padding: 5px;
     margin-top: -2px;
     z-index: -1;
@@ -282,6 +281,8 @@ footer li{
 }
 
 #departmentMenu div a{
+        border-bottom: #d9d9d9 solid 1px;
+            min-height: 40px;
     display:block;
     padding: 2px 5px;
     cursor: pointer;
@@ -306,7 +307,6 @@ footer li{
 }
 
 #subDepartmentMenu {
-    border: 1px solid #2E6DA4;
     padding: 5px;
     margin-top: -2px;
     z-index: -1;
@@ -319,7 +319,12 @@ footer li{
 }
 
 #subDepartmentMenu div a{
+        border-bottom: #d9d9d9 solid 1px;
+            min-height: 40px;
     display:block;
     padding: 2px 5px;
     cursor: pointer;
+}
+.whitetext{
+    color: white
 }
