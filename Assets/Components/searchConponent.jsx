@@ -2,7 +2,7 @@ import React from 'react';
 import request from 'request';
 import Result1 from './plp';
 import {searchData , getProducts} from './Action/searchAction';
-import event from './Store/searchStore';
+import eventHandler from './Store/searchStore';
 var searchQuery;
 class Result extends React.Component {
 
@@ -13,12 +13,13 @@ class Result extends React.Component {
         this._onChange = this._onChange.bind(this);
     }
 
-    _onChange() {
+    _onChange(e) {
 
-        this.setState({test: 'changed'});
-        React.render(<Result1 productItems={JSON.parse(getProducts()).productItems}
-                              pageInformation={JSON.parse(getProducts()).pageInformation}
-                              facetLists={JSON.parse(getProducts()).facetLists}
+      var Products= JSON.parse(event.currentTarget.response);
+
+        React.render(<Result1 productItems={Products.productItems}
+                              pageInformation={Products.pageInformation}
+                              facetLists={Products.facetLists}
                               data={React.findDOMNode(this.refs.search).value.trim()}/>, document.getElementById('result'));
     }
 
@@ -57,12 +58,12 @@ class Result extends React.Component {
     componentWillMount() {
 
 
-        event.addChangeListener(this._onChange);
+        eventHandler.addChangeListener(this._onChange);
     }
 
 
     componentWillUnmount() {
-        event.removeChangeListener(this._onChange);
+        eventHandler.removeChangeListener(this._onChange);
     }
 
 }
