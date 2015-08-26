@@ -277,6 +277,14 @@ footer li{
     width: 250px;
 }
 
+#filters ul{
+    padding-left: 0;
+}
+
+#filters ul li{
+    list-style: none;
+}
+
 #departmentMenu div {
     display: block;
     clear: both;
