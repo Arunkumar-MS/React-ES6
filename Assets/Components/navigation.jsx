@@ -9,19 +9,19 @@ class Navigation extends React.Component {
       constructor() {
         super();
         this.state = {test: 'hello'};
-        this._onChange = this._onChange.bind(this);
+        this._onMenuChange = this._onMenuChange.bind(this);
     }
-    _onChange() {
-        this.setState({test: 'changed'});
+    _onMenuChange() {
+        //var menus= JSON.parse(event.currentTarget.response);
         React.render(<SuperDepartment menuItems={JSON.parse(getMenu())} />, document.getElementById('departmentMenu'));
     }
 
     componentWillMount() {
-        event.addChangeListener(this._onChange);
+        event.addChangeListener(this._onMenuChange);
     }
 
     componentWillUnmount() {
-        event.removeChangeListener(this._onChange);
+        event.removeChangeListener(this._onMenuChange);
     }
     handleClick(name, e) {
         if(name == 'Groceries'){
