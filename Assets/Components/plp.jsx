@@ -21,7 +21,7 @@ class Result1 extends React.Component {
 
              <div>
                <div id="filters" className="col-sm-2 col-lg-2 col-md-2"> 
-                 <Filters facetLists={this.props.facetLists}/></div>
+                 <Filters facetLists={this.props.facetLists} searchTerm={this.props.data} /></div>
                  <div className="col-sm-10 col-lg-10 col-md-10">
                  <Sorting item={this.props.data} productInfo={this.props.pageInformation} />
 

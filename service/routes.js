@@ -22,6 +22,16 @@ exports.search=function (req, res) {
         url+='&page='+req.query.page;
 
     }
+     if(req.query['department'])
+    {
+        url+='&department='+req.query.department;
+
+    }
+     if(req.query['aisle'])
+    {
+        url+='&aisle='+req.query.aisle;
+
+    }
 
     request.get({
             url: url,

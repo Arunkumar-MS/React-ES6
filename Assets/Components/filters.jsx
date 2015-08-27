@@ -42,9 +42,9 @@ var Filters = React.createClass(  //extends React.Component
         }
     },
 
-    _onBackToDepartment(selectedFilterId, selectedFilterName){
-         this.setState({departmentId: selectedFilterId, departmentName: selectedFilterName, aisleId: null, aisleName: null});
-         searchData(this.props.searchTerm, 1, selectedFilterId);
+    _onBackToDepartment(){
+         this.setState({ aisleId: null, aisleName: null});
+         searchData(this.props.searchTerm, 1, this.state.departmentId,null);
     },
 
     _onBackToSearchResults(){
