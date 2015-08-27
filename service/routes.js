@@ -25,12 +25,15 @@ exports.search=function (req, res) {
      if(req.query['department'])
     {
         url+='&department='+req.query.department;
-
     }
      if(req.query['aisle'])
     {
         url+='&aisle='+req.query.aisle;
+    }
 
+     if(req.query['brand'])
+    {
+        url+='&brand='+req.query.brand;
     }
 
     request.get({
