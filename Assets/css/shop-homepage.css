@@ -36,7 +36,9 @@ caption h4 {
     width: 60%;
 }
 
-
+a {
+    cursor: pointer;
+}
 
 .searchtxt
 {
