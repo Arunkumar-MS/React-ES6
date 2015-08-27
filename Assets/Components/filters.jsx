@@ -2,6 +2,7 @@ var React = require('react');
 var request = require('request');
 var AreaFilters = require('./areaFilters');
 var {searchData , getProducts} = require('./Action/searchAction');
+var BrandFilters = require('./brandFilters');
 //import events from './Store/searchStore';
 
 var Filters = React.createClass(  //extends React.Component
@@ -12,21 +13,51 @@ var Filters = React.createClass(  //extends React.Component
                 departmentId: null,
                 departmentName: null,
                 aisleId: null,
-                aisleName: null
+                aisleName: null,
+                brand: null
             };
     },
 
  render() {
-    var areaFacet = this.props.facetLists.filter(function(facet){
-                return (facet.category !== 'Brand' && facet.category !== 'Promotion');
+    var areaFacet = null;
+    var brandFacet = null;
+    var promotionFacet = null;
+
+    this.props.facetLists.map(function(facet){
+                if(facet.category !== 'Brand' && facet.category !== 'Promotion'){
+                    areaFacet = facet;
+                }
+                else if(facet.category === 'Brand'){
+                    brandFacet = facet;
+                }
+                else if(facet.category === 'Promotion'){
+                    promotionFacet = facet;
+                }
             });
-        return (
-            <div>
-                 <AreaFilters facets={areaFacet[0].facets} category={areaFacet[0].category} searchTerm={this.props.searchTerm} 
-                 onAreaFilterSelected={this._onAreaFilterSelected} onBackToSearchResults={this._onBackToSearchResults}
-                 onBackToDepartment={this._onBackToDepartment} department={this.state.departmentName}/>
-            </div>
-        );
+
+        return (<div>
+                    <div>
+                         {(areaFacet !== null) ? <AreaFilters facets={areaFacet.facets} category={areaFacet.category}  
+                         onAreaFilterSelected={this._onAreaFilterSelected} onBackToSearchResults={this._onBackToSearchResults}
+                         onBackToDepartment={this._onBackToDepartment} department={this.state.departmentName}/> : null}
+                    </div>
+                    <div>
+                        <BrandFilters facets={brandFacet.facets} onBrandSelected={this._onBrandSelected} selectedBrands={this.state.brand}/>
+                    </div>
+                </div>
+            );
+    },
+
+    _onBrandSelected(facetId){
+        var selectedBrands = this.state.brand;
+        if(selectedBrands !== null){
+         this.setState({brand: selectedBrands + ',' + facetId});
+         searchData(this.props.searchTerm, 1, this.state.departmentId, this.state.aisleId, this.state.brand);
+        }
+        else{
+         this.setState({brand: facetId});
+         searchData(this.props.searchTerm, 1, this.state.departmentId, this.state.aisleId, facetId);
+        }
     },
 
     _onAreaFilterSelected(selectedFilterId, selectedFilterName, category){

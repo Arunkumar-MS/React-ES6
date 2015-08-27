@@ -5,9 +5,17 @@ class BrandFilters  extends React.Component
 {
  render() {
         return (
+        	<div>
+	        	<h3>Brand</h3>
+	        	<ul>
+	        		{this.props.facets.map( function(facet){
+	        			return(<li><input type="checkbox" onChange={this.props.onBrandSelected.bind(null, facet.facetId)} >
+	        			 {facet.facetName} ({facet.binCount}) </input></li>);
+	        		}, this)
 
-            <input type="checkbox" className="more btn btn-primary btn-block" onClick={this.loadMore.bind(this)}>
-             </input>
+	        	}
+	        	</ul>
+        	</div>
         )
     }
 }
