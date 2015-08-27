@@ -40,6 +40,7 @@ a {
     cursor: pointer;
 }
 
+
 .searchtxt
 {
 text-align: center;
@@ -218,7 +219,7 @@ footer li{
     margin:20px;
 }
 #miniBasket{
-    float: left;
+    float: right;
     margin: -25px 1% 1% 6%;
 }
 #miniBasket .itemsCount  {
@@ -238,19 +239,19 @@ footer li{
     line-height: 20px;
 }
 
-#navigationMenu {
+#navigationMenus {
     clear: both;
     border-bottom: 4px solid #2E6DA4;
     padding-left: 25px;
     height: 44px;
 }
 
-#navigationMenu div div{
+#navigationMenus div div{
     display: inline;
     clear: both;
 }
 
-#navigationMenu div div a {
+#navigationMenus div div a {
     display: inline-block;
     padding: 10px 25px;
     background-color: #2E6DA4;
@@ -259,7 +260,7 @@ footer li{
     text-decoration:none;
 }
 
-#navigationMenu div div a:hover {
+#navigationMenus div div a:hover {
     background-color: #fff;
     color: #2E6DA4;
 }
@@ -268,7 +269,7 @@ footer li{
     display: none;
 }
 
-#departmentMenu {
+#departmentMenu. #subDepartmentMenu {
     padding: 5px;
     margin-top: 0px;
     z-index: -1;
@@ -276,23 +277,38 @@ footer li{
     border-bottom: 1px solid #333;
     display: inline-block;
     float: left;
-    width: 250px;
+    width: 200px;
 }
 
-#filters ul{
-    padding-left: 0;
-}
-
-#filters ul li{
-    list-style: none;
-}
-
-#departmentMenu div {
+#departmentMenu ul, #subDepartmentMenu ul, #aisle ul {
     display: block;
     clear: both;
-    width:250px;
+    width:100%;
+    list-style-type: none;
+    position: relative;
 }
-
+#departmentMenu ul li a, #subDepartmentMenu ul li a, #aisle ul li a
+{
+    border-bottom: #d9d9d9 solid 1px;
+    min-height: 40px;
+    display: block;
+    padding: 2px 5px;
+    cursor: pointer;
+    line-height: 30px;
+}
+#departmentMenu ul li a:hover, #departmentMenu ul li a:focus,  
+#subDepartmentMenu ul li a:hover, #subDepartmentMenu ul li a:focus,
+#aisle ul li a:hover, #aisle ul li a:focus 
+{
+    border-bottom: #d9d9d9 solid 1px;
+    min-height: 40px;
+    display: block;
+    padding: 2px 5px;
+    cursor: pointer;
+    line-height: 30px;
+    background-color: #2E6DA4;
+    color: #fff;
+}
 #departmentMenu div a, #subDepartmentMenu div a,  #aisle div a{
     border-bottom: #d9d9d9 solid 1px;
     min-height: 40px;
@@ -312,7 +328,9 @@ footer li{
     background-color: #2E6DA4;
     color: #fff;
 }
-
+#navigationMenu{
+    margin-top: 15px;
+}
 #navigationMenu div div a:first-child {
     border-left: 4px solid #2E6DA4;
     border-right: 3px solid #2E6DA4;
@@ -331,14 +349,7 @@ footer li{
     display: none;
 }
 
-#subDepartmentMenu {
-    padding: 5px;
-    padding-right:0px;
-    margin-top: 0px;
-    z-index: -1;
-    width: 250px;
-    padding-left: -7px;
-}
+
 
 #subDepartmentMenu div {
     display: block;
@@ -359,46 +370,69 @@ footer li{
 
 #subDepartmentMenu{
     display: block;
-    width: 250px;
     float: left;
+    width: 100%;
 }
 #aisle
 {
-    width: 250px;
     float: left;
     padding-left: 0px;
-    padding-top: 5px;
+    width: 100%;
+}
+#subnavigation{
+    margin-top: -23px;
 }
 
 
 
-
-
-
-
-.first li{
-    float: left;
-    margin:0 1px;
+/*Modified Bootstrap Css*/
+.navbar-default .navbar-nav > li > a{
+    color:#fff;
 }
-.first li,
-.second li,
-.third li{
-    position: relative;
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
+    color: #2E6DA4;
+    background-color: #fff;
 }
-.first li a,
-.second li a,
-.third li a
-{
-    display:  block;
-}
-.second ul,
-.third ul{
-    display: none;
-}
-.second a:active + ul,
-.third a:active + ul{
+@media (min-width: 768px){
+
+    #departmentMenu ul, #subDepartmentMenu ul, #aisle ul {
     display: block;
-    postion:absolute;
-    top:0;
-    left:0;
+    clear: both;
+    width:220px;
+    list-style-type: none;
+    position: relative;
+    }
+    #subDepartmentMenu{
+        width:220px;
+    }
+    #aisle{
+        width:220px;
+    }
+}
+@media (min-width: 1000px){
+
+    #departmentMenu ul, #subDepartmentMenu ul, #aisle ul {
+    display: block;
+    clear: both;
+    width:300px;
+    list-style-type: none;
+    position: relative;
+    }
+    #subDepartmentMenu{
+        width:300px;
+    }
+    #aisle{
+        width:300px;
+    }
+    .dropdown-menu{
+        font-size: 14px;
+    }
+}
+
+#filters ul{
+ padding-left: 0;
+}
+
+#filters ul li{
+ list-style: none;
 }
