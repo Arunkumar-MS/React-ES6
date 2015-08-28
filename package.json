@@ -26,6 +26,7 @@
     "flux": "^2.0.3",
     "object-assign": "^3.0.0",
     "react": "^0.13.0-rc2",
-    "request": "^2.57.0"
+    "request": "^2.57.0",
+    "underscore.string": "^3.2.0"
   }
 }

@@ -3,6 +3,7 @@ var request = require('request');
 var AreaFilters = require('./areaFilters');
 var {searchData , getProducts} = require('./Action/searchAction');
 var BrandFilters = require('./brandFilters');
+var s = require('underscore.string');
 //import events from './Store/searchStore';
 
 var Filters = React.createClass(  //extends React.Component
@@ -48,15 +49,27 @@ var Filters = React.createClass(  //extends React.Component
             );
     },
 
-    _onBrandSelected(facetId){
-        var selectedBrands = this.state.brand;
-        if(selectedBrands !== null){
-         this.setState({brand: selectedBrands + ',' + facetId});
-         searchData(this.props.searchTerm, 1, this.state.departmentId, this.state.aisleId, this.state.brand);
+    _onBrandSelected(facetId, e){
+        if(e.target.checked){
+            var selectedBrands = this.state.brand;
+            if(selectedBrands !== null){
+             selectedBrands = selectedBrands.concat(facetId, ',');
+             this.setState({brand: selectedBrands});
+             selectedBrands = s.rtrim(selectedBrands, ',');
+             searchData(this.props.searchTerm, 1, this.state.departmentId, this.state.aisleId, selectedBrands);
+            }
+            else{
+             this.setState({brand: facetId + ','});
+             searchData(this.props.searchTerm, 1, this.state.departmentId, this.state.aisleId, facetId);
+            }
         }
         else{
-         this.setState({brand: facetId});
-         searchData(this.props.searchTerm, 1, this.state.departmentId, this.state.aisleId, facetId);
+            var brand = this.state.brand;
+            brand = brand.replace(facetId + ',', '');
+            this.setState({brand: brand});
+            brand = s.rtrim(brand, ',');
+            brand = s.clean(brand);
+            searchData(this.props.searchTerm, 1, this.state.departmentId, this.state.aisleId, brand);
         }
     },
 
@@ -64,12 +77,12 @@ var Filters = React.createClass(  //extends React.Component
         if(category === 'Department')
         {
             this.setState({departmentId: selectedFilterId, departmentName: selectedFilterName, aisleId: null, aisleName: null});
-            searchData(this.props.searchTerm, 1, selectedFilterId);
+            searchData(this.props.searchTerm, 1, selectedFilterId, null, this.state.brand === null ? null : this.state.brand);
         }
         else if(category === 'Aisle')
         {
             this.setState({aisleId: selectedFilterId, aisleName: selectedFilterName});
-            searchData(this.props.searchTerm, 1, this.state.departmentId, selectedFilterId);
+            searchData(this.props.searchTerm, 1, this.state.departmentId, selectedFilterId, this.state.brand === null ? null : this.state.brand);
         }
     },
 
