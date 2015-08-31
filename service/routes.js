@@ -115,3 +115,53 @@ exports.login=function(req,res)
 
         });
 }
+
+exports.getTrolley=function(req,res)
+{
+    var Header = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Ighs-Language': 'en-GB',
+        'Ighs-Appkey': config.Appkey,
+        'Ighs-session': req.query.session
+    };
+    request.get({
+            url: config.trolley,
+            headers: Header,
+            rejectUnauthorized: false
+        },
+        function (error, response, body) {
+            res.send(body);
+        })
+
+
+}
+exports.getProductByCatagory=function (req, res) {
+    var Header = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Ighs-Language': 'en-GB',
+        'Ighs-Appkey': config.Appkey
+    };
+
+    var url = config.navigationUrl+ req.query.catagoryId;
+
+    if(req.query['sortBy'])
+    {
+        url+='&sortBy='+req.query.sortBy;
+
+    }
+    if(req.query['page'])
+    {
+        url+='&page='+req.query.page;
+
+    }
+    request.get({
+            url: url,
+            headers: Header,
+            rejectUnauthorized: false
+        },
+        function (error, response, body) {
+            res.send(body);
+        })
+}
