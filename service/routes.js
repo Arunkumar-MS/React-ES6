@@ -36,6 +36,8 @@ exports.search=function (req, res) {
         url+='&brand='+req.query.brand;
     }
 
+
+
     request.get({
             url: url,
             headers: Header,
@@ -84,4 +86,32 @@ exports.sitenavigation=function (req, res) {
         })
 
 
+}
+
+
+exports.login=function(req,res)
+{
+
+
+    var Header = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Ighs-Appkey': 'trn:tesco:cid:mweb:uuid:A5EA1E42-1A9D-4262-8370-770B927D12E0',
+        'Ighs-Language': 'en-GB'
+
+
+    };
+    //var url='https://r.tesco.pl/api/v2/session';
+
+    var requestData= {
+        "Email": req.query.email,
+        "Password": req.query.pwd,
+        "IpAddress": "127.0.0.1"
+    }
+    request({ url: config.login,rejectUnauthorized: false ,headers: Header, method: 'PUT', json: requestData},
+        function (error, response, body)  {
+
+            res.send(body);
+
+        });
 }

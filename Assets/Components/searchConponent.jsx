@@ -3,6 +3,8 @@ import request from 'request';
 import Result1 from './plp';
 import {searchData , getProducts} from './Action/searchAction';
 import eventHandler from './Store/searchStore';
+//import {login } from './Action/loginAction';
+import Login from './Login';
 var searchQuery;
 class Result extends React.Component {
 
@@ -22,11 +24,18 @@ class Result extends React.Component {
                               facetLists={Products.facetLists}
                               data={React.findDOMNode(this.refs.search).value.trim()}/>, document.getElementById('result'));
     }
+    singIn()
+    {
+        React.render(<Login />, document.getElementById('login'));
+
+
+    }
 
     handleClick(e) {
 
         searchQuery= React.findDOMNode(this.refs.search).value.trim();
-        searchData(searchQuery);
+       searchData(searchQuery);
+        //login('arunkumar.shivanna@in.tesco.com','arun@123');
 
     }
 
@@ -35,7 +44,8 @@ class Result extends React.Component {
 
 
             <div className="row">
-
+                <button className="btn" type="button" onClick={this.singIn.bind(this)}>Login
+                </button>
                 <div>
                     <div className="input-group">
                         <input ref="search" type="text" className="form-control"
