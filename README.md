@@ -13,7 +13,7 @@ Run gulp: gulp
 
 For more info on gulp [click here](http://www.smashingmagazine.com/2014/06/11/building-with-gulp/)
 
-Launch: node app
+Launch: node app or app (for debug just use : app debug)
 
 Visit in your browser at: http://localhost:4000
 
