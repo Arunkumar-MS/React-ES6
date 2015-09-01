@@ -4,7 +4,7 @@ import request from 'request';
 
 var result;
 
-export function searchData(query , pageNo=1, department=null, aisle=null, brand=null, fromProductSearch=true) {
+export function searchData(query , pageNo=1, department=null, aisle=null, brand=null, fromProductSearch=true, promotion=null) {
 
 let searchUri = '';
 if(fromProductSearch){
@@ -29,6 +29,10 @@ else{
 
      if(brand !== null && brand !== 'null'){
         searchUri = searchUri + '&brand=' + brand;
+    }
+
+    if(promotion !== null && promotion !== 'null'){
+        searchUri = searchUri + '&promotion=' + promotion;
     }
 
     request.get({

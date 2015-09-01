@@ -35,7 +35,11 @@ exports.search=function (req, res) {
     {
         url+='&brand='+req.query.brand;
     }
-
+    
+     if(req.query['promotion'])
+    {
+        url+='&promotion='+req.query.promotion;
+    }
 
 
     request.get({
