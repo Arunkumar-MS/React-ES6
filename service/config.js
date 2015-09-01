@@ -5,5 +5,6 @@ module.exports =
     ProductDetail: 'https://s.tesco.pl/api/v1/products/',
     navigationUrl: 'https://s.tesco.pl/api/v1/categories/',
     login: 'https://r.tesco.pl/api/v2/session',
-    trolley: 'https://s.tesco.pl/api/v1/trolley' 
+    trolley: 'https://s.tesco.pl/api/v1/trolley',
+    miniTrolleyUrl: 'https://s.tesco.pl/api/v1/trolley/items/'
 }

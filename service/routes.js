@@ -168,3 +168,25 @@ exports.getProductByCategory=function (req, res) {
             res.send(body);
         })
 }
+exports.updateMiniTrolley=function (req, res) {
+    var Header = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Ighs-Language': 'en-GB',
+        'Ighs-Appkey': config.Appkey  ,
+        'Ighs-Session': req.headers.session
+    };
+
+  //  console.log(requestData);
+    request({ url: config.miniTrolleyUrl,rejectUnauthorized: false ,headers: Header, method: 'PUT', json: req.body},
+        function (error, response, body)  {
+
+
+            console.log("res - "+response);
+
+            res.send(body);
+
+        });
+
+
+}

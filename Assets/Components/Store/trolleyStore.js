@@ -33,6 +33,11 @@ AppDispatcher.register(function(action) {
         case 'GET_TROLLEY_DATA':
                 event.emitChange();
             break;
+        case 'ADD_TO_MINITROLLEY':
+
+            event.emitChange('AddMiniTrolleyChange');
+
+            break;
         default:
             break;
     }

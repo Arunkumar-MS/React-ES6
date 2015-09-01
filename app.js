@@ -25,6 +25,7 @@ app.get('/ProductDetail',routes.productDetails);
 app.get('/navigation',routes.sitenavigation);
 app.put('/login',routes.login);
 app.get('/trolley',routes.getTrolley);
+app.put('/miniTrolley',routes.updateMiniTrolley);
 app.get('/categories',routes.getProductByCategory);
 app.get('/', function (req, res) {
     res.render('index.html');
