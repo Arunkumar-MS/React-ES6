@@ -51,8 +51,9 @@ AppDispatcher.register(function(action) {
                 event.emitChange('PageChange');
             }
             break;
-
-
+        case 'GET_PRODUCT_BY_CATEGORY_DATA':
+            event.emitChange();
+            break;
     }
 });
 

@@ -136,7 +136,7 @@ exports.getTrolley=function(req,res)
 
 
 }
-exports.getProductByCatagory=function (req, res) {
+exports.getProductByCategory=function (req, res) {
     var Header = {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
@@ -144,18 +144,18 @@ exports.getProductByCatagory=function (req, res) {
         'Ighs-Appkey': config.Appkey
     };
 
-    var url = config.navigationUrl+ req.query.catagoryId;
+    var url = config.navigationUrl+ req.query.categoryId;
 
-    if(req.query['sortBy'])
-    {
-        url+='&sortBy='+req.query.sortBy;
+    // if(req.query['sortBy'])
+    // {
+    //     url+='&sortBy='+req.query.sortBy;
 
-    }
-    if(req.query['page'])
-    {
-        url+='&page='+req.query.page;
+    // }
+    // if(req.query['page'])
+    // {
+    //     url+='&page='+req.query.page;
 
-    }
+    // }
     request.get({
             url: url,
             headers: Header,

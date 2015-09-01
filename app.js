@@ -23,7 +23,7 @@ app.get('/ProductDetail',routes.productDetails);
 app.get('/navigation',routes.sitenavigation);
 app.get('/login',routes.login);
 app.get('/trolley',routes.getTrolley);
-app.get('/catagories',routes.getProductByCatagory);
+app.get('/categories',routes.getProductByCategory);
 app.get('/', function (req, res) {
     res.render('index.html');
 });

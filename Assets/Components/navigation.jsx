@@ -2,7 +2,7 @@ import React from 'react';
 import request from 'request';
 import SuperDepartment from './superDepartment';
 import {getMenuData , getMenu} from './Action/navigationAction';
-import event from './Store/navigationStore';
+import eventHandler from './Store/navigationStore';
 
 class Navigation extends React.Component {
     
@@ -12,16 +12,17 @@ class Navigation extends React.Component {
         this._onMenuChange = this._onMenuChange.bind(this);
     }
     _onMenuChange() {
-        //var menus= JSON.parse(event.currentTarget.response);
-        React.render(<SuperDepartment menuItems={JSON.parse(getMenu())} />, document.getElementById('departmentMenu'));
+        document.getElementById('subnavigation').style.display = 'block';
+        var menus= JSON.parse(event.currentTarget.response);
+        React.render(<SuperDepartment menuItems={menus} />, document.getElementById('departmentMenu'));
     }
 
     componentWillMount() {
-        event.addChangeListener(this._onMenuChange);
+        eventHandler.addChangeListener(this._onMenuChange);
     }
 
     componentWillUnmount() {
-        event.removeChangeListener(this._onMenuChange);
+        eventHandler.removeChangeListener(this._onMenuChange);
     }
     handleClick(name, e) {
         if(name == 'Groceries'){

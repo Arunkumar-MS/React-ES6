@@ -4,9 +4,15 @@ import request from 'request';
 
 var result;
 
-export function searchData(query , pageNo=1, department=null, aisle=null, brand=null) {
+export function searchData(query , pageNo=1, department=null, aisle=null, brand=null, fromProductSearch=true) {
 
-var searchUri = 'http://localhost:4000/search?search=' + query+'&page='+pageNo ;
+let searchUri = '';
+if(fromProductSearch){
+    searchUri = 'http://localhost:4000/search?search=' + query+'&page='+pageNo;
+}
+else{
+    searchUri = 'http://localhost:4000/categories?categoryId=' + query+'&page='+pageNo 
+}
 
     var Header = {
         'Content-Type': 'application/json',
@@ -33,21 +39,29 @@ var searchUri = 'http://localhost:4000/search?search=' + query+'&page='+pageNo ;
         function (error, response, body) {
 
             result = body;
-
-            switch (pageNo) {
-                case 1:
-                    AppDispatcher.
-                        handleViewAction({
-                            actionType: 'GET_SEARCH_DATA',
-                            data: result
-                        });
-                    break;
-                default :
-                    AppDispatcher.
-                        handleViewAction({
-                            actionType: 'NEXT_PAGE',
-                            data: result
-                        });
+            if(fromProductSearch){
+                switch (pageNo) {
+                    case 1:
+                        AppDispatcher.
+                            handleViewAction({
+                                actionType: 'GET_SEARCH_DATA',
+                                data: result
+                            });
+                        break;
+                    default :
+                        AppDispatcher.
+                            handleViewAction({
+                                actionType: 'NEXT_PAGE',
+                                data: result
+                            });
+                }
+            }
+            else{
+                AppDispatcher.
+                            handleViewAction({
+                                actionType: 'GET_PRODUCT_BY_CATEGORY_DATA',
+                                data: result
+                            });
             }
         });
 
