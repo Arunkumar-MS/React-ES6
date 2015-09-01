@@ -123,7 +123,7 @@ exports.getTrolley=function(req,res)
         'Accept': 'application/json',
         'Ighs-Language': 'en-GB',
         'Ighs-Appkey': config.Appkey,
-        'Ighs-session': req.query.session
+        'Ighs-session': req.headers.session
     };
     request.get({
             url: config.trolley,
