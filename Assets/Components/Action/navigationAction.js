@@ -1,7 +1,6 @@
 import AppDispatcher from '../Common/Dispatcher'
 import request from 'request';
 
-
 var result;
 
 export function getMenuData() {

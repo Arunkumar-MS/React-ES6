@@ -101,11 +101,10 @@ exports.login=function(req,res)
 
 
     };
-    //var url='https://r.tesco.pl/api/v2/session';
 
     var requestData= {
-        "Email": req.query.email,
-        "Password": req.query.pwd,
+        "Email": req.body.Email,
+        "Password": req.body.Password,
         "IpAddress": "127.0.0.1"
     }
     request({ url: config.login,rejectUnauthorized: false ,headers: Header, method: 'PUT', json: requestData},

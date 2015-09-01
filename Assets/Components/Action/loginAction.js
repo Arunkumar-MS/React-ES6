@@ -11,11 +11,19 @@ export function login(email , pwd) {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
     };
-    request.get({
-            url: loginUri,
-            headers: Header,
-            rejectUnauthorized: false
-        },
+
+    var requestData= {
+        "Email": email,
+        "Password": pwd,
+        "IpAddress": "127.0.0.1"
+    }
+    request({ url: 'http://localhost:4000/login',rejectUnauthorized: false ,headers: Header, method: 'PUT', json: requestData},
+
+        // request.get({
+   //         url: loginUri,
+     //       headers: Header,
+    //        rejectUnauthorized: false
+       // },
         function (error, response, body) {
 
 
