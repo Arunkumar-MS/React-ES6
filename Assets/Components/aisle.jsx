@@ -3,8 +3,9 @@ import request from 'request';
 import Result1 from './plp';
 import {searchData , getProducts} from './Action/searchAction';
 import eventHandler from './Store/searchStore';
-
+ var categoryId = '';
 class Aisle extends React.Component {
+   
     constructor() {
         super();
         this.state = {test: 'hello'};
@@ -17,7 +18,7 @@ class Aisle extends React.Component {
         React.render(<Result1 productItems={Products.productItems}
                               pageInformation={Products.pageInformation}
                               facetLists={Products.facetLists}
-                              data={React.findDOMNode(this.refs.search).value.trim()}/>, document.getElementById('result'));
+                              data={categoryId} fromProductSearch={false}/>, document.getElementById('result'));
     }
 
     componentWillMount() {
@@ -28,7 +29,7 @@ class Aisle extends React.Component {
         eventHandler.removeChangeListener(this._onCategoryChange);
     }
     getProductByCategoryId(e){
-        let categoryId = e.currentTarget.title;
+        categoryId = e.currentTarget.title;
         console.log(categoryId);
         searchData(categoryId,1,null,null,null,false);
     }

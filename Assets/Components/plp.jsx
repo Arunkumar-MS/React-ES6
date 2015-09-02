@@ -7,7 +7,9 @@ import Sorting from './sorting';
 import Filters from './Filters';
 
 class Result1 extends React.Component {
-
+    constructor(props) {
+        super(props);
+    }
     productDiscription(id) {
 
         React.render(<ProductDetail />, document.getElementById('result'));
@@ -21,9 +23,10 @@ class Result1 extends React.Component {
 
              <div>
                <div id="filters" className="col-sm-2 col-lg-2 col-md-2"> 
-                 <Filters facetLists={this.props.facetLists} searchTerm={this.props.data} /></div>
+                 <Filters facetLists={this.props.facetLists} searchTerm={this.props.data} fromProductSearch={this.props.fromProductSearch} /></div>
                  <div className="col-sm-10 col-lg-10 col-md-10">
-                 <Sorting item={this.props.data} productInfo={this.props.pageInformation} />
+                  <Sorting item={this.props.data} productInfo={this.props.pageInformation} fromProductSearch={this.props.fromProductSearch} />
+
 
 
              <div className="row">
@@ -62,6 +65,8 @@ class Result1 extends React.Component {
         );
     }
 }
+
+Result1.defaultProps = {fromProductSearch:true};
 export default Result1;
 
 
