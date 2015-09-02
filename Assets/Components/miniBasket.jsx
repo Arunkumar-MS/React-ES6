@@ -1,6 +1,7 @@
 import React from 'react';
 import {getBasketData , getBasket, addToMiniTrolley, getMiniTrolleyData} from './Action/trolleyAction';
 import eventHandler from './Store/trolleyStore';
+import BasketItems from './basketItems';
 
 class MiniBasket extends React.Component {
     constructor() {
@@ -31,6 +32,7 @@ class MiniBasket extends React.Component {
     _onTrolleyChange(e) {
       let basketItems= JSON.parse(event.currentTarget.response);
       console.log(basketItems);
+       React.render(<BasketItems items={basketItems} />, document.getElementById('trolleyItems'));
     }
     componentWillMount() {
         this.handleAddToBasket()
