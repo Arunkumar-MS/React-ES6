@@ -34,7 +34,8 @@ export function addToMiniTrolley(productData) {
 
     var Header = {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'session': getCookie('userSesionToken')
     };
    /* var miniTrolleyUri = 'http://localhost:4000/miniTrolley?id=' + productData.id+'&newUnitChoice='+productData.newUnitChoice+'&oldUnitChoice='+productData.oldUnitChoice+'&newValue='+productData.newValue+'&oldValue='+productData.oldValue;
 
