@@ -10,7 +10,7 @@ class Login extends React.Component {
     constructor() {
         super();
 
-        this.state = {show: true};
+        this.state = {show: true , error:""};
         this._onLoggedIn = this._onLoggedIn.bind(this);
     }
     handleClick()
@@ -24,13 +24,34 @@ class Login extends React.Component {
     _onLoggedIn()
     {
         var response= JSON.parse(event.currentTarget.response);
-        document.getElementsByClassName("modal-backdrop")[0].className=""
-        setCookie('userSesionToken',response.sessionToken,1);
-        this.setState(
+
+
+      if(typeof response.sessionToken != "undefined" && response.sessionToken != "")
+
+      {
+
+          document.getElementsByClassName("modal-backdrop")[0].className = ""
+          setCookie('userSesionToken', response.sessionToken, 1);
+          this.setState(
+              {
+
+                  show: false,
+                  error: ""
+              });
+
+      }
+        else
             {
 
-                show: false
-            });
+                this.setState(
+                    {
+
+                        show: true,
+                        error: response.message
+                    });
+
+      }
+
     }
 
     render() {
@@ -54,6 +75,11 @@ class Login extends React.Component {
                                     <div className="modal-header">
                                         <button type="button" className="close" data-dismiss="modal">&times;</button>
                                         <h4 className="modal-title">Please Sign in</h4>
+                                        <div className="alert-danger">
+                                            { this.state.error}
+                                        </div>
+
+
                                     </div>
                                     <div className="modal-body">
 
@@ -67,7 +93,7 @@ class Login extends React.Component {
 
                                             <input className="btn btn-lg btn-success btn-block"  onClick={this.handleClick.bind(this)} type="button" value="Login">
                                             </input>
-                                            <button type="button" className="btn btn-default" data-dismiss="modal">Cancel</button>
+
                                         </fieldset>
 
 
