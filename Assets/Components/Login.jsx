@@ -93,7 +93,7 @@ class Login extends React.Component {
 
                                             <input className="btn btn-lg btn-success btn-block"  onClick={this.handleClick.bind(this)} type="button" value="Login">
                                             </input>
-                                            <button type="button" className="btn btn-default" data-dismiss="modal">Cancel</button>
+
                                         </fieldset>
 
 
