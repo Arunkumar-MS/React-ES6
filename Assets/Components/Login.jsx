@@ -29,9 +29,11 @@ class Login extends React.Component {
       if(typeof response.sessionToken != "undefined" && response.sessionToken != "")
 
       {
-
-          document.getElementsByClassName("modal-backdrop")[0].className = ""
+          document.getElementsByTagName("body")[0].className ="";
+          document.getElementsByClassName("modal-backdrop")[0].className = "";
           setCookie('userSesionToken', response.sessionToken, 1);
+          setCookie('emailId', response.name, 1);
+
           this.setState(
               {
 
