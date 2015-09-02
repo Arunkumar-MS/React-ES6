@@ -24,7 +24,12 @@ class Result extends React.Component {
                               facetLists={Products.facetLists}
                               data={React.findDOMNode(this.refs.search).value.trim()}/>, document.getElementById('result'));
     }
+    singIn()
+    {
+        React.render(<Login />, document.getElementById('login'));
 
+
+    }
 
     handleClick(e) {
 
@@ -39,9 +44,8 @@ class Result extends React.Component {
 
 
             <div className="row">
-
-                <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Login</button>
-
+                <button className="btn" type="button" onClick={this.singIn.bind(this)}>Login
+                </button>
                 <div>
                     <div className="input-group">
                         <input ref="search" type="text" className="form-control"

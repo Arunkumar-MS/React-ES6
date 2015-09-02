@@ -24,8 +24,13 @@ class Login extends React.Component {
     _onLoggedIn()
     {
         var response= JSON.parse(event.currentTarget.response);
-        document.getElementsByClassName("modal-backdrop")[0].className=""
+        //response.sessionToken
+
+
+
         setCookie('userSesionToken',response.sessionToken,1);
+        getCookie('userSesionToken');
+      console.log(getCookie('userSesionToken'));
         this.setState(
             {
 
@@ -38,49 +43,36 @@ class Login extends React.Component {
 
 
 
-
-                <div>
-
+            <div>
                 {  this.state.show == true ?
+             <div className="container">
+                <div className="row vertical-offset-100">
+                    <div className="col-md-4 col-md-offset-4">
+                        <div className="panel panel-default">
+                            <div className="panel-heading">
+                                <h3 className="panel-title">Please sign in</h3>
+                            </div>
+                            <div className="panel-body">
 
-
-                    <div className="container">
-
-                        <div className="modal fade" id="myModal" role="dialog">
-                            <div className="modal-dialog">
-
-
-                                <div className="modal-content">
-                                    <div className="modal-header">
-                                        <button type="button" className="close" data-dismiss="modal">&times;</button>
-                                        <h4 className="modal-title">Please Sign in</h4>
-                                    </div>
-                                    <div className="modal-body">
-
-                                        <fieldset>
-                                            <div className="form-group">
-                                                <input className="form-control" placeholder="E-mail"ref="email" type="text">
-                                                </input> </div>
+                                    <fieldset>
+                                        <div className="form-group">
+                                            <input className="form-control" placeholder="E-mail"ref="email" type="text">
+                                            </input> </div>
                                             <div className="form-group">
                                                 <input className="form-control" placeholder="Password" ref="password" type="password">
                                                 </input></div>
 
-                                            <input className="btn btn-lg btn-success btn-block"  onClick={this.handleClick.bind(this)} type="button" value="Login">
-                                            </input>
-                                            <button type="button" className="btn btn-default" data-dismiss="modal">Cancel</button>
-                                        </fieldset>
+                                                    <input className="btn btn-lg btn-success btn-block"  onClick={this.handleClick.bind(this)} type="button" value="Login">
+                                                        </input>
+                                                        </fieldset>
 
-
+                                            </div>
+                                        </div>
                                     </div>
-
                                 </div>
-
                             </div>
-                        </div>
 
-                    </div>
-
-                        : ""}
+                : ""}
                         </div>
         );
     }
