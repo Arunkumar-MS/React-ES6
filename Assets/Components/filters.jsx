@@ -38,17 +38,36 @@ var Filters = React.createClass(  //extends React.Component
             });
 
         return (<div>
-                    <div>
-                        <PromotionFilters facets={promotionFacet.facets} onPromotionSelected={this._onPromotionSelected} />
-                    </div>
-                    <div>
-                         {(areaFacet !== null) ? <AreaFilters facets={areaFacet.facets} category={areaFacet.category}  
-                         onAreaFilterSelected={this._onAreaFilterSelected} onBackToSearchResults={this._onBackToSearchResults}
-                         onBackToDepartment={this._onBackToDepartment} department={this.state.departmentName}/> : null}
-                    </div>
-                    <div>
-                        <BrandFilters facets={brandFacet.facets} onBrandSelected={this._onBrandSelected} selectedBrands={this.state.brand}/>
-                    </div>
+            <div id="filters" className="col-sm-2 col-lg-2 col-md-2">
+                <div className="bs-example" data-example-id="navbar-link">
+                    <nav className="navbar">
+                        <div className="container-fluid">
+                            <div className="navbar-header">
+                                <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-5" aria-expanded="false">
+                                    <span className="glyphicon glyphicon-filter"></span>
+                                </button>
+                                <a className="navbar-brand" href="#">Filters</a>
+                            </div>
+                            <div className="navbar-collapse collapse" id="bs-example-navbar-collapse-5" aria-expanded="false">
+                                <div className="navbar-text navbar-right">
+                                    <div>
+                                        <PromotionFilters facets={promotionFacet.facets} onPromotionSelected={this._onPromotionSelected} />
+                                    </div>
+                                    <div>
+                                         {(areaFacet !== null) ? <AreaFilters facets={areaFacet.facets} category={areaFacet.category}
+                                         onAreaFilterSelected={this._onAreaFilterSelected} onBackToSearchResults={this._onBackToSearchResults}
+                                         onBackToDepartment={this._onBackToDepartment} department={this.state.departmentName}/> : null}
+                                    </div>
+                                    <div>
+                                        <BrandFilters facets={brandFacet.facets} onBrandSelected={this._onBrandSelected} selectedBrands={this.state.brand}/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+
+            </div>
                 </div>
             );
     },
