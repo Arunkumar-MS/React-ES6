@@ -16,7 +16,7 @@ class SuperDepartment extends React.Component {
         };
 
         console.log(departments);
-        React.render(<SubDepartment departments={departments} menuItems={menuItems} />, currentTarget);
+        React.render(<SubDepartment departments={departments} menuItems={menuItems} />,  document.getElementById('subDepartmentMenu'));
     }
     render() {
         var self=this;

@@ -2,28 +2,30 @@ import React from 'react';
 import request from 'request';
 import SuperDepartment from './superDepartment';
 import {getMenuData , getMenu} from './Action/navigationAction';
-import event from './Store/navigationStore';
+import eventHandler from './Store/navigationStore';
 var currentTarget;
 class Navigation extends React.Component {
     
       constructor() {
         super();
         this.state = {test: 'hello'};
-        this._onChange = this._onChange.bind(this);
+        this._onMenuChange = this._onMenuChange.bind(this);
     }
-    _onChange(e) {
-        this.setState({test: 'changed'});
-        React.render(<SuperDepartment menuItems={JSON.parse(getMenu())} />, currentTarget);
+    _onMenuChange(e) {
+         document.getElementById('subnavigation').style.display = 'block';
+        let menus = JSON.parse(event.currentTarget.response);
+        React.render(<SuperDepartment menuItems={menus} />, document.getElementById('departmentMenu'));
     }
 
     componentWillMount() {
-        event.addChangeListener(this._onChange);
+        eventHandler.addChangeListener(this._onMenuChange);
     }
 
     componentWillUnmount() {
-        event.removeChangeListener(this._onChange);
+        eventHandler.removeChangeListener(this._onMenuChange);
     }
     handleClick(name, e) {
+
         currentTarget = e.currentTarget.lastChild;
         if(name == 'Groceries'){
           getMenuData();
@@ -56,8 +58,7 @@ class Navigation extends React.Component {
                     }
                     return (<li className="dropdown"   onClick={self.handleClick.bind(this, item)}>
                         <a data-toggle="dropdown" className="dropdown-toggle" href="#">{item}<b className={caretClassName}></b> </a>
-                        <ul className="dropdown-menu">
-                        </ul>
+                        
                     </li>)
                 })}
             </ul>
