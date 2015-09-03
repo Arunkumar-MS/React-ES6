@@ -519,3 +519,51 @@ footer li{
     font-size:14px;
     margin-top:0;
 }
+
+
+                                                        /*Basket Items Styles STARTS*/
+
+
+.basket-tile-content{
+    background-color: #fff;
+    border: 1px solid #b4b4b4;
+    border-radius: 6px;
+    margin-top: 39px;
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+
+}
+.description{
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #00539f;
+    text-decoration: none;
+    height: 125px;
+    margin-top: 15px;
+}
+.price
+{    
+    bottom: 0px;
+    color: #666;
+    display: block;
+    position: absolute;
+}
+.product-image{
+
+}
+.quantity{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+.placeholder{
+    height: 135px;
+}
+.margin5{
+    margin-bottom: 5px;
+    padding-right: 1px !important;
+    padding-left: 9px !important;
+}
+                                                        /*Basket Items Styles ENDS*/
