@@ -9,6 +9,9 @@ var s = require('underscore.string');
 
 var Filters = React.createClass(  //extends React.Component
 {
+    getDefaultProps() {
+      return { fromProductSearch: true };
+    },
     getInitialState(){
         return {
                 //initailFacetList: this.props.facetLists,
@@ -38,48 +41,51 @@ var Filters = React.createClass(  //extends React.Component
             });
 
         return (<div>
-            <div id="filters" className="col-sm-2 col-lg-2 col-md-2">
-                <div className="bs-example" data-example-id="navbar-link">
-                    <nav className="navbar">
-                        <div className="container-fluid">
-                            <div className="navbar-header">
-                                <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-5" aria-expanded="false">
-                                    <span className="glyphicon glyphicon-filter"></span>
-                                </button>
-                                <a className="navbar-brand" href="#">Filters</a>
-                            </div>
-                            <div className="navbar-collapse collapse" id="bs-example-navbar-collapse-5" aria-expanded="false">
-                                <div className="navbar-text navbar-right">
-                                    <div>
-                                        <PromotionFilters facets={promotionFacet.facets} onPromotionSelected={this._onPromotionSelected} />
-                                    </div>
-                                    <div>
-                                         {(areaFacet !== null) ? <AreaFilters facets={areaFacet.facets} category={areaFacet.category}
-                                         onAreaFilterSelected={this._onAreaFilterSelected} onBackToSearchResults={this._onBackToSearchResults}
-                                         onBackToDepartment={this._onBackToDepartment} department={this.state.departmentName}/> : null}
-                                    </div>
-                                    <div>
-                                        <BrandFilters facets={brandFacet.facets} onBrandSelected={this._onBrandSelected} selectedBrands={this.state.brand}/>
-                                    </div>
+                 <div id="filters" className="col-sm-2 col-lg-2 col-md-2">
+                    <div className="bs-example" data-example-id="navbar-link">
+                        <nav className="navbar">
+                            <div className="container-fluid">
+                                <div className="navbar-header">
+                                    <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-5" aria-expanded="false">
+                                        <span className="glyphicon glyphicon-filter"></span>
+                                    </button>
+                                    <a className="navbar-brand" href="#">Filters</a>
+                                </div>
+                                <div className="navbar-collapse collapse" id="bs-example-navbar-collapse-5" aria-expanded="false">
+                                    <div className="navbar-text navbar-right col-sm-12 col-lg-12 col-md-12">
+                                        { promotionFacet ? (
+                                            <div>
+                                                <PromotionFilters facets={promotionFacet.facets} onPromotionSelected={this._onPromotionSelected} />
+                                            </div>) : null
+                                        }
+                                        <div>
+                                             {(areaFacet !== null) ? <AreaFilters facets={areaFacet.facets} category={areaFacet.category}  
+                                             onAreaFilterSelected={this._onAreaFilterSelected} onBackToSearchResults={this._onBackToSearchResults}
+                                             onBackToDepartment={this._onBackToDepartment} department={this.state.departmentName}/> : null}
+                                        </div>
+                                        { brandFacet ? (<div>
+                                            <BrandFilters facets={brandFacet.facets} onBrandSelected={this._onBrandSelected} selectedBrands={this.state.brand}/>
+                                        </div>): ''}
+                                         </div>
                                 </div>
                             </div>
-                        </div>
-                    </nav>
-                </div>
+                        </nav>
+                    </div>
 
-            </div>
+                </div>
                 </div>
             );
     },
 
+  
     _onPromotionSelected(facetId, e){
         if(e.target.checked){
             this.setState({promotion: facetId});
-             searchData(this.props.searchTerm, 1, this.state.departmentId, this.state.aisleId, this.state.brand, true, facetId);
+             searchData(this.props.searchTerm, 1, this.state.departmentId, this.state.aisleId, this.state.brand, this.props.fromProductSearch, facetId);
         }
         else{
             this.setState({promotion: null});
-             searchData(this.props.searchTerm, 1, this.state.departmentId, this.state.aisleId, this.state.brand, true, null);
+             searchData(this.props.searchTerm, 1, this.state.departmentId, this.state.aisleId, this.state.brand, this.props.fromProductSearch, null);
         }
     },
 
@@ -90,11 +96,11 @@ var Filters = React.createClass(  //extends React.Component
              selectedBrands = selectedBrands.concat(facetId, ',');
              this.setState({brand: selectedBrands});
              selectedBrands = s.rtrim(selectedBrands, ',');
-             searchData(this.props.searchTerm, 1, this.state.departmentId, this.state.aisleId, selectedBrands, true, this.state.promotion);
+             searchData(this.props.searchTerm, 1, this.state.departmentId, this.state.aisleId, selectedBrands, this.props.fromProductSearch, this.state.promotion);
             }
             else{
              this.setState({brand: facetId + ','});
-             searchData(this.props.searchTerm, 1, this.state.departmentId, this.state.aisleId, facetId, true, this.state.promotion);
+             searchData(this.props.searchTerm, 1, this.state.departmentId, this.state.aisleId, facetId, this.props.fromProductSearch, this.state.promotion);
             }
         }
         else{
@@ -103,7 +109,7 @@ var Filters = React.createClass(  //extends React.Component
             this.setState({brand: brand});
             brand = s.rtrim(brand, ',');
             brand = s.clean(brand);
-            searchData(this.props.searchTerm, 1, this.state.departmentId, this.state.aisleId, brand, true, this.state.promotion);
+            searchData(this.props.searchTerm, 1, this.state.departmentId, this.state.aisleId, brand, this.props.fromProductSearch, this.state.promotion);
         }
     },
 
@@ -111,23 +117,24 @@ var Filters = React.createClass(  //extends React.Component
         if(category === 'Department')
         {
             this.setState({departmentId: selectedFilterId, departmentName: selectedFilterName, aisleId: null, aisleName: null});
-            searchData(this.props.searchTerm, 1, selectedFilterId, null, this.state.brand === null ? null : this.state.brand, true, this.state.promotion);
+            searchData(this.props.searchTerm, 1, selectedFilterId, null, this.state.brand === null ? null : this.state.brand, this.props.fromProductSearch, this.state.promotion);
         }
         else if(category === 'Aisle')
         {
             this.setState({aisleId: selectedFilterId, aisleName: selectedFilterName});
-            searchData(this.props.searchTerm, 1, this.state.departmentId, selectedFilterId, this.state.brand === null ? null : this.state.brand, true, this.state.promotion);
+            searchData(this.props.searchTerm, 1, this.state.departmentId, selectedFilterId, this.state.brand === null ? null : this.state.brand, this.props.fromProductSearch, this.state.promotion);
         }
     },
 
     _onBackToDepartment(){
          this.setState({ aisleId: null, aisleName: null});
-         searchData(this.props.searchTerm, 1, this.state.departmentId,null, true, null);
+         searchData(this.props.searchTerm, 1, this.state.departmentId,null, null, this.props.fromProductSearch, null);
     },
 
     _onBackToSearchResults(){
         this.setState({selectedFilterId: null, selectedFilterName: null});
-        searchData(this.props.searchTerm, 1, null, null, true, null);
+        searchData(this.props.searchTerm, 1, null, null, null, this.props.fromProductSearch, null);
+        
     }
 });
 

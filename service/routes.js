@@ -147,18 +147,35 @@ exports.getProductByCategory=function (req, res) {
         'Ighs-Appkey': config.Appkey
     };
 
-    var url = config.navigationUrl+ req.query.categoryId;
+    var url = config.navigationUrl + req.query.categoryId+'?viewType=null';
 
-    // if(req.query['sortBy'])
-    // {
-    //     url+='&sortBy='+req.query.sortBy;
+    if(req.query['sortBy'])
+    {
+        url+='&sortBy='+req.query.sortBy;
+    }
+    if(req.query['page'])
+    {
+        url+='&page='+req.query.page;
+    }
+    if(req.query['department'])
+    {
+        url+='&department='+req.query.department;
+    }
+    if(req.query['aisle'])
+    {
+        url+='&aisle='+req.query.aisle;
+    }
 
-    // }
-    // if(req.query['page'])
-    // {
-    //     url+='&page='+req.query.page;
+    if(req.query['brand'])
+    {
+        url+='&brand='+req.query.brand;
+    }
+    
+    if(req.query['promotion'])
+    {
+        url+='&promotion='+req.query.promotion;
+    }
 
-    // }
     request.get({
             url: url,
             headers: Header,

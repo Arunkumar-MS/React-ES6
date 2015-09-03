@@ -3,7 +3,7 @@ import request from 'request';
 import SuperDepartment from './superDepartment';
 import {getMenuData , getMenu} from './Action/navigationAction';
 import eventHandler from './Store/navigationStore';
-
+var currentTarget;
 class Navigation extends React.Component {
     
       constructor() {
@@ -11,9 +11,9 @@ class Navigation extends React.Component {
         this.state = {test: 'hello'};
         this._onMenuChange = this._onMenuChange.bind(this);
     }
-    _onMenuChange() {
-        document.getElementById('subnavigation').style.display = 'block';
-        var menus= JSON.parse(event.currentTarget.response);
+    _onMenuChange(e) {
+         document.getElementById('subnavigation').style.display = 'block';
+        let menus = JSON.parse(event.currentTarget.response);
         React.render(<SuperDepartment menuItems={menus} />, document.getElementById('departmentMenu'));
     }
 
@@ -25,6 +25,8 @@ class Navigation extends React.Component {
         eventHandler.removeChangeListener(this._onMenuChange);
     }
     handleClick(name, e) {
+
+        currentTarget = e.currentTarget.lastChild;
         if(name == 'Groceries'){
           getMenuData();
         }
@@ -56,7 +58,8 @@ class Navigation extends React.Component {
                     }
                     return (<li className="dropdown"   onClick={self.handleClick.bind(this, item)}>
                         <a data-toggle="dropdown" className="dropdown-toggle" href="#">{item}<b className={caretClassName}></b> </a>
-                    </li>);
+                        
+                    </li>)
                 })}
             </ul>
             </div>

@@ -10,7 +10,7 @@ class Login extends React.Component {
     constructor() {
         super();
 
-        this.state = {show: true};
+        this.state = {show: true , error:""};
         this._onLoggedIn = this._onLoggedIn.bind(this);
     }
     handleClick()
@@ -24,18 +24,36 @@ class Login extends React.Component {
     _onLoggedIn()
     {
         var response= JSON.parse(event.currentTarget.response);
-        //response.sessionToken
 
 
+      if(typeof response.sessionToken != "undefined" && response.sessionToken != "")
 
-        setCookie('userSesionToken',response.sessionToken,1);
-        getCookie('userSesionToken');
-      console.log(getCookie('userSesionToken'));
-        this.setState(
+      {
+          document.getElementsByTagName("body")[0].className ="";
+          document.getElementsByClassName("modal-backdrop")[0].className = "";
+          setCookie('userSesionToken', response.sessionToken, 1);
+          setCookie('emailId', response.name, 1);
+
+          this.setState(
+              {
+
+                  show: false,
+                  error: ""
+              });
+
+      }
+        else
             {
 
-                show: false
-            });
+                this.setState(
+                    {
+
+                        show: true,
+                        error: response.message
+                    });
+
+      }
+
     }
 
     render() {
@@ -43,36 +61,54 @@ class Login extends React.Component {
 
 
 
-            <div>
-                {  this.state.show == true ?
-             <div className="container">
-                <div className="row vertical-offset-100">
-                    <div className="col-md-4 col-md-offset-4">
-                        <div className="panel panel-default">
-                            <div className="panel-heading">
-                                <h3 className="panel-title">Please sign in</h3>
-                            </div>
-                            <div className="panel-body">
 
-                                    <fieldset>
-                                        <div className="form-group">
-                                            <input className="form-control" placeholder="E-mail"ref="email" type="text">
-                                            </input> </div>
+                <div>
+
+                {  this.state.show == true ?
+
+
+                    <div className="container">
+
+                        <div className="modal fade" id="myModal" role="dialog">
+                            <div className="modal-dialog">
+
+
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <button type="button" className="close" data-dismiss="modal">&times;</button>
+                                        <h4 className="modal-title">Please Sign in</h4>
+                                        <div className="alert-danger">
+                                            { this.state.error}
+                                        </div>
+
+
+                                    </div>
+                                    <div className="modal-body">
+
+                                        <fieldset>
+                                            <div className="form-group">
+                                                <input className="form-control" placeholder="E-mail"ref="email" type="text">
+                                                </input> </div>
                                             <div className="form-group">
                                                 <input className="form-control" placeholder="Password" ref="password" type="password">
                                                 </input></div>
 
-                                                    <input className="btn btn-lg btn-success btn-block"  onClick={this.handleClick.bind(this)} type="button" value="Login">
-                                                        </input>
-                                                        </fieldset>
+                                            <input className="btn btn-lg btn-success btn-block"  onClick={this.handleClick.bind(this)} type="button" value="Login">
+                                            </input>
 
-                                            </div>
-                                        </div>
+                                        </fieldset>
+
+
                                     </div>
-                                </div>
-                            </div>
 
-                : ""}
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                        : ""}
                         </div>
         );
     }

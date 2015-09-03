@@ -1,11 +1,14 @@
 import React from 'react';
 import {getBasketData , getBasket, addToMiniTrolley, getMiniTrolleyData} from './Action/trolleyAction';
 import eventHandler from './Store/trolleyStore';
+import BasketItems from './basketItems';
 
 class MiniBasket extends React.Component {
     constructor() {
       super();
-      this.state = {test: 'hello'};
+      this.state = {test: 'hello',
+                    itemsCount: 0,
+                    totalPrice: 0.00};
 
       this._onTrolleyChange = this._onTrolleyChange.bind(this);
       this._onAddMiniTrolleyChange = this._onAddMiniTrolleyChange.bind(this);
@@ -26,11 +29,22 @@ class MiniBasket extends React.Component {
     }
 
     _onAddMiniTrolleyChange(){
+       let data = getMiniTrolleyData();
+        console.log(data.trolley.guidePrice);
+        console.log(data.trolley.items.length);
+
+        this.setState({
+
+            itemsCount: data.trolley.items.length,
+            totalPrice: data.trolley.guidePrice
+
+        });
 
     }
     _onTrolleyChange(e) {
       let basketItems= JSON.parse(event.currentTarget.response);
       console.log(basketItems);
+       React.render(<BasketItems basketItems={basketItems} />, document.getElementById('trolleyItems'));
     }
     componentWillMount() {
         this.handleAddToBasket()
@@ -50,9 +64,9 @@ class MiniBasket extends React.Component {
                <h2>Basket</h2>
                <dl>
                 <dt className="hide">Items</dt>
-                <dd className="itemsCount">0</dd>
+                <dd className="itemsCount">{this.state.itemsCount}</dd>
                 <dt className="hide">Total Price</dt>
-                <dd>$ 0.00</dd>
+                <dd>{this.state.totalPrice} zł</dd>
                </dl>
            </div>
         );
