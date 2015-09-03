@@ -468,6 +468,10 @@ footer li{
  padding: 0 15px;
 }
 
+#filters input[type="checkbox"]{
+    margin: 4px 5px 0 0;
+}
+
 #filters ul li{
  list-style: none;
     font-size:13px;
