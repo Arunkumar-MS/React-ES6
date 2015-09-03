@@ -61,7 +61,7 @@ export function addToMiniTrolley(productData) {
 
          miniTrolleyResult = body;
          AppDispatcher.handleViewAction({
-         actionType: 'ADD_TO_BASKET',
+         actionType: 'ADD_TO_MINITROLLEY',
          data: miniTrolleyResult
          });
 
