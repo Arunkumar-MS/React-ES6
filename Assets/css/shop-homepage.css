@@ -156,7 +156,7 @@ header{
     height: 3em;
   /*  width: 33.33333%;      */
 }
-#search, #filters, #result {
+#search, #result {
     float: left;
    /* width: 33.33333%;      */
 }
@@ -463,10 +463,59 @@ footer li{
     }
 
 
+
 #filters ul{
- padding-left: 0;
+ padding: 0 15px;
 }
 
 #filters ul li{
  list-style: none;
+    font-size:13px;
+}
+#filters span.glyphicon.glyphicon-filter {
+    font-size: 26px;
+    background-color: #fff;
+    color: #2E6DA4;
+    padding: 5px;
+    border: 1px solid #2E6DA4;
+    border-radius: 5px;
+    margin-top:5px;
+}
+#filters .navbar-toggle,#filters div.navbar-collapse,#filters div.container-fluid ,#filters div.navbar-text   {
+    padding: 0;
+    margin: 0;
+}
+
+#filters .navbar-toggle{
+    margin-right: 15px;
+}
+#result.col-sm-12,
+#result.col-sx-12{
+    padding: 0;
+}
+#filters.col-sm-2,
+#filters.col-sx-2{
+    padding: 0 0 8px;
+}
+#filters.col-lg-2,
+#filters.col-md-2{
+    margin-top: 37px;
+}
+#filters.col-sm-2,
+#filters.col-sx-2{
+    margin-top: 0;
+}
+#filters .navbar-header{
+    margin: 0;
+    border:1px solid #ddd;
+    padding: 0;
+}
+#filters .navbar-text{
+    border:1px solid #DDDDDD;
+}
+#filters .navbar-text h3{
+    padding: 10px;
+    background-color: #DDDDDD;
+    font-size:14px;
+    margin-top:0;
 }
