@@ -1,5 +1,5 @@
 import React from 'react';
-import {getBasketData , getBasket, addToMiniTrolley, getMiniTrolleyData} from './Action/trolleyAction';
+import {getBasketData , getBasket, getMiniTrolleyData} from './Action/trolleyAction';
 import eventHandler from './Store/trolleyStore';
 import BasketItems from './basketItems';
 
@@ -13,25 +13,9 @@ class MiniBasket extends React.Component {
       this._onTrolleyChange = this._onTrolleyChange.bind(this);
       this._onAddMiniTrolleyChange = this._onAddMiniTrolleyChange.bind(this);
     }
-    handleAddToBasket(){
-        var product = this.props.productData,
-            currProdQty = this.props.currentQty,
-            unitOfMeasure = product.unitOfMeasure == "kgs" ? "kgs" : "pcs";
-        var productData = {
-            "items" :[ {
-            id: product.id,
-            newUnitChoice: unitOfMeasure,
-            oldUnitChoice: unitOfMeasure,
-            newValue: currProdQty,
-            oldValue: 0 }]
-        };
-        addToMiniTrolley(productData);
-    }
 
     _onAddMiniTrolleyChange(){
        let data = getMiniTrolleyData();
-        console.log(data.trolley.guidePrice);
-        console.log(data.trolley.items.length);
 
         this.setState({
 
@@ -47,7 +31,6 @@ class MiniBasket extends React.Component {
        React.render(<BasketItems basketItems={basketItems} />, document.getElementById('trolleyItems'));
     }
     componentWillMount() {
-        this.handleAddToBasket()
         eventHandler.addChangeListener(this._onAddMiniTrolleyChange, 'AddMiniTrolleyChange');
         eventHandler.addChangeListener(this._onTrolleyChange);
     }
@@ -66,7 +49,7 @@ class MiniBasket extends React.Component {
                 <dt className="hide">Items</dt>
                 <dd className="itemsCount">{this.state.itemsCount}</dd>
                 <dt className="hide">Total Price</dt>
-                <dd>{this.state.totalPrice} zł</dd>
+                <dd>$ {this.state.totalPrice}</dd>
                </dl>
            </div>
         );

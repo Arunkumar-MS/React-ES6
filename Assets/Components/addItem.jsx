@@ -1,6 +1,7 @@
 
 import React from 'react';
 import MiniBasket from './miniBasket';
+import {addToMiniTrolley} from './Action/trolleyAction';
 
 class AddItem extends React.Component {
     constructor(props) {
@@ -16,8 +17,24 @@ class AddItem extends React.Component {
         this.setState({quantity: this.state.quantity !== this.props.defaultQty ? this.state.quantity-this.props.defaultQty:this.props.defaultQty})
     }
     addToBasket() {
-        React.render(<MiniBasket productData={this.props.productData} currentQty={this.state.quantity}/>, document.getElementById('miniBasket'));
+        var product = this.props.productData,
+            currProdQty = this.props.currentQty,
+            unitOfMeasure = product.unitOfMeasure == "kgs" ? "kgs" : "pcs";
+        var productData = {
+            "items": [{
+                id: product.id,
+                newUnitChoice: unitOfMeasure,
+                oldUnitChoice: unitOfMeasure,
+                newValue: currProdQty,
+                oldValue: 0
+            }]
+        };
+        addToMiniTrolley(productData);
+        React.render(<MiniBasket />, document.getElementById('miniBasket'));
     }
+
+
+
 
     render() {
         return (
