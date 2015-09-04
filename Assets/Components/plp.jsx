@@ -11,28 +11,16 @@ class Result1 extends React.Component {
         super(props);
     }
     productDiscription(id) {
-
         React.render(<ProductDetail />, document.getElementById('result'));
-
-
     }
 
     render() {
-
         return (
-
              <div>
                  <Filters facetLists={this.props.facetLists} searchTerm={this.props.data} fromProductSearch={this.props.fromProductSearch} />
                  <div className="col-sm-10 col-lg-10 col-md-10">
                   <Sorting item={this.props.data} productInfo={this.props.pageInformation} fromProductSearch={this.props.fromProductSearch} />
-
-
-
              <div className="row">
-
-
-
-
                 {this.props.productItems.map(function (item, i) {
                     return (
                         <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">

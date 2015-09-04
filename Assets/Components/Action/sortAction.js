@@ -3,7 +3,15 @@ import request from 'request';
 
 var result;
 
-export function sortProducts(search , sortAs) {
+export function sortProducts(search , sortAs, fromProductSearch=true) {
+
+    let searchUri = '';
+    if(fromProductSearch){
+        searchUri = 'http://localhost:4000/search?search=' + search+'&sortBy='+sortAs;
+    }
+    else{
+        searchUri = 'http://localhost:4000/categories?categoryId=' + search +'&sortBy=' + sortAs;
+    }
 
     var Header = {
         'Content-Type': 'application/json',
@@ -11,7 +19,7 @@ export function sortProducts(search , sortAs) {
     };
 
     request.get({
-            url: 'http://localhost:4000/search?search=' + search+'&sortBy='+sortAs,
+            url: searchUri,
             headers: Header,
             rejectUnauthorized: false
         },
