@@ -119,7 +119,7 @@ var Filters = React.createClass(  //extends React.Component
             this.setState({departmentId: selectedFilterId, departmentName: selectedFilterName, aisleId: null, aisleName: null});
             searchData(this.props.searchTerm, 1, selectedFilterId, null, this.state.brand === null ? null : this.state.brand, this.props.fromProductSearch, this.state.promotion);
         }
-        else if(category === 'Aisle')
+        else if(category === 'Aisle' || category === 'Shelf')
         {
             this.setState({aisleId: selectedFilterId, aisleName: selectedFilterName});
             searchData(this.props.searchTerm, 1, this.state.departmentId, selectedFilterId, this.state.brand === null ? null : this.state.brand, this.props.fromProductSearch, this.state.promotion);
