@@ -15,6 +15,8 @@ class Result1 extends React.Component {
     }
 
     render() {
+         document.getElementById('trolleyItems').style.display = 'none';
+        document.getElementById('result').style.display = 'block';
         return (
              <div>
                  <Filters facetLists={this.props.facetLists} searchTerm={this.props.data} fromProductSearch={this.props.fromProductSearch} />
