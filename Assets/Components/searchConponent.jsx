@@ -3,6 +3,7 @@ import request from 'request';
 import Result1 from './plp';
 import {searchData , getProducts} from './Action/searchAction';
 import eventHandler from './Store/searchStore';
+import {getCookie , setCookie} from './Helper/helper';
 //import {login } from './Action/loginAction';
 import Login from './Login';
 var searchQuery;
@@ -10,8 +11,7 @@ class Result extends React.Component {
 
     constructor() {
         super();
-        this.state = {test: 'hello'};
-
+        this.state = {showLogin: {display:'block'}};
         this._onChange = this._onChange.bind(this);
     }
 
@@ -31,7 +31,6 @@ class Result extends React.Component {
         searchQuery= React.findDOMNode(this.refs.search).value.trim();
        searchData(searchQuery);
         //login('arunkumar.shivanna@in.tesco.com','arun@123');
-
     }
 
     render() {
@@ -40,7 +39,7 @@ class Result extends React.Component {
 
             <div className="row">
 
-                <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Login</button>
+                <button type="button" style={this.state.showLogin} className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Login</button>
 
                 <div>
                     <div className="input-group">
@@ -62,8 +61,9 @@ class Result extends React.Component {
 
 
     componentWillMount() {
-
-
+         if(getCookie('userSesionToken')){
+          this.setState({ showLogin: {display:'none'} });
+        }
         eventHandler.addChangeListener(this._onChange);
     }
 

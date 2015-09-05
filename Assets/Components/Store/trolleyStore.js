@@ -3,22 +3,33 @@ import assign from'object-assign';
 import {EventEmitter} from  'events';
 var CHANGE_EVENT = 'change';
 
-var event = assign({}, EventEmitter.prototype, {
+
+// Define initial data points
+var _basketItems = {}, _renderTrolley = true;
+
+function loadBasketItems(data) {
+  _basketItems = data.data;
+  _renderTrolley = data.renderTrolley;
+}
+
+
+var TrolleyStore = assign({}, EventEmitter.prototype, {
+    getBasketItem: function(data) {
+        return _basketItems; 
+    },
+
+    getTrolleyToBeRendered: function(){
+        return _renderTrolley;
+    },
 
     emitChange: function(_event=CHANGE_EVENT) {
         this.emit(_event);
     },
 
-    /**
-     * @param {function} callback
-     */
     addChangeListener: function(callback,_event=CHANGE_EVENT) {
         this.on(_event, callback);
     },
 
-    /**
-     * @param {function} callback
-     */
     removeChangeListener: function(callback,_event=CHANGE_EVENT) {
         this.removeListener(_event, callback);
     }
@@ -31,12 +42,11 @@ AppDispatcher.register(function(action) {
 
     switch (action.action.actionType) {
         case 'GET_TROLLEY_DATA':
-                event.emitChange();
+            loadBasketItems(action.action)
+            TrolleyStore.emitChange();
             break;
         case 'ADD_TO_MINITROLLEY':
-
-            event.emitChange('AddMiniTrolleyChange');
-
+            TrolleyStore.emitChange('AddMiniTrolleyChange');
             break;
         default:
             break;
@@ -44,6 +54,6 @@ AppDispatcher.register(function(action) {
 });
 
 
-export default event;
+export default TrolleyStore;
 
 

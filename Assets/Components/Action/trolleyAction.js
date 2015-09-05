@@ -2,75 +2,47 @@ import AppDispatcher from '../Common/Dispatcher'
 import request from 'request';
 import {getCookie} from '../Helper/helper';
 
-var result, miniTrolleyResult;
+var TrolleyAction = {
+     getBasketData(renderTrolley = true) {
+        var Header = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'session': getCookie('userSesionToken')
+        };
 
-export function getBasketData() {
-    console.log(getCookie('userSesionToken'));
-    var Header = {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'session': getCookie('userSesionToken')
-    };
-
-    request.get({
-            url: 'http://localhost:4000/trolley',
-            headers: Header,
-            rejectUnauthorized: false
-        },
-        function (error, response, body) {
-            result = body;
-            AppDispatcher.
-            handleViewAction({
-                actionType: 'GET_TROLLEY_DATA',
-                data: result
+        request.get({
+                url: 'http://localhost:4000/trolley',
+                headers: Header,
+                rejectUnauthorized: false
+            },
+            function (error, response, body) {
+                let _data = body;
+                AppDispatcher.
+                handleViewAction({
+                    actionType: 'GET_TROLLEY_DATA',
+                    data: _data,
+                    renderTrolley: renderTrolley
+                });
             });
-        });
-}
-
-export function getBasket() {
-    return result;
-}
-export function addToMiniTrolley(productData) {
-
-    var Header = {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'session': getCookie('userSesionToken')
-    };
-   /* var miniTrolleyUri = 'http://localhost:4000/miniTrolley?id=' + productData.id+'&newUnitChoice='+productData.newUnitChoice+'&oldUnitChoice='+productData.oldUnitChoice+'&newValue='+productData.newValue+'&oldValue='+productData.oldValue;
-
-    request.get({
-        url: miniTrolleyUri,
-        headers: Header,
-        rejectUnauthorized: false
     },
-        function (error, response, body) {
+    addToMiniTrolley(productData) {
+        var Header = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'session': getCookie('userSesionToken')
+        };
+        request({ url: 'http://localhost:4000/miniTrolley',rejectUnauthorized: false ,headers: Header, method: 'PUT', json: productData},
 
-            miniTrolleyResult = body;
-            AppDispatcher.handleViewAction({
-                actionType: 'ADD_TO_MINITROLLEY',
-                data: miniTrolleyResult
-            });
+         function (error, response, body) {
+                 miniTrolleyResult = body;
+                 AppDispatcher.handleViewAction({
+                 actionType: 'ADD_TO_MINITROLLEY',
+                 data: miniTrolleyResult
+             });
 
-        });    */
-
-
-    request({ url: 'http://localhost:4000/miniTrolley',rejectUnauthorized: false ,headers: Header, method: 'PUT', json: productData},
-
-     function (error, response, body) {
-
-         miniTrolleyResult = body;
-         AppDispatcher.handleViewAction({
-         actionType: 'ADD_TO_MINITROLLEY',
-         data: miniTrolleyResult
          });
+    }
 
-     });
+};
 
-}
-
-export function getMiniTrolleyData() {
-
-    return miniTrolleyResult;
-
-}
+export default TrolleyAction;
