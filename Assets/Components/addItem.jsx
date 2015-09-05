@@ -1,7 +1,7 @@
 
 import React from 'react';
 import MiniBasket from './miniBasket';
-import {addToMiniTrolley} from './Action/trolleyAction';
+import TrolleyAction from './Action/trolleyAction';
 
 class AddItem extends React.Component {
     constructor(props) {
@@ -29,7 +29,7 @@ class AddItem extends React.Component {
                 oldValue: 0
             }]
         };
-        addToMiniTrolley(productData);
+        TrolleyAction.addToMiniTrolley(productData);
         React.render(<MiniBasket />, document.getElementById('miniBasket'));
     }
 
