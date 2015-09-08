@@ -523,3 +523,78 @@ footer li{
     font-size:14px;
     margin-top:0;
 }
+
+                                        /*Basket - Order Summary Starts*/
+.basket-tile-content{
+    background-color: #fff;
+    border: 1px solid #b4b4b4;
+    border-radius: 6px;
+    margin-top: 15px;
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+
+}
+.description{
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #00539f;
+    text-decoration: none;
+    height: 125px;
+    margin-top: 15px;
+}
+    .price
+    {    
+    bottom: 0px;
+    color: #666;
+    display: block;
+    position: absolute;
+    }
+    .product-image{
+        
+    }
+    .quantity{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    }
+    .placeholder{
+        height: 135px;
+    }
+    .margin5{
+        margin-bottom: 5px;
+            padding-right: 1px !important;
+    padding-left: 9px !important;
+    }
+    .rightspace, #trolleyItems, #orderSummary{
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+    #orderSummary h3{
+        font-weight: bold;
+        color: #23527c;
+            font-size: 20px;
+    }
+    .trolley-order-row{
+        border-bottom: 1px solid #b4b4b4;
+        display: table;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        width: 100%;
+    }
+
+    .trolley-order-row.last{
+        border-bottom: 0px solid #b4b4b4;
+        font-weight: 700;
+    }
+    .trolley-order-row:first-child {
+    text-align: left;
+}
+    .trolley-order-summary{
+        display: table-cell;
+        text-align: right;
+    }   
+                                        /*Basket - Order Summary Ends*/                    

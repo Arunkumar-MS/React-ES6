@@ -2,6 +2,7 @@ import React from 'react';
 import TrolleyAction from './Action/trolleyAction';
 import TrolleyStore from './Store/trolleyStore';
 import BasketItems from './basketItems';
+import OrderSummary from './orderSummary';
 
 class MiniBasket extends React.Component {
     constructor() {
@@ -34,6 +35,7 @@ class MiniBasket extends React.Component {
         });
       if(TrolleyStore.getTrolleyToBeRendered()){
         React.render(<BasketItems basketItems={basketItems} />, document.getElementById('trolleyItems'));
+        React.render(<OrderSummary />, document.getElementById('orderSummary'));
       }
     }
     componentWillMount() {
