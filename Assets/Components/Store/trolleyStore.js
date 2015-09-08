@@ -42,11 +42,13 @@ AppDispatcher.register(function(action) {
 
     switch (action.action.actionType) {
         case 'GET_TROLLEY_DATA':
-            loadBasketItems(action.action)
+            loadBasketItems(action.action);
             TrolleyStore.emitChange();
             break;
         case 'ADD_TO_MINITROLLEY':
-            TrolleyStore.emitChange('AddMiniTrolleyChange');
+            loadBasketItems(action.action);
+            TrolleyStore.emitChange('TrolleyChange');
+
             break;
         default:
             break;

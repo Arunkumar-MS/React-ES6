@@ -1,6 +1,8 @@
 
 import React from 'react';
 import MiniBasket from './miniBasket';
+import TrolleyStore from './Store/trolleyStore';
+import BasketItems from './basketItems';
 import TrolleyAction from './Action/trolleyAction';
 
 class AddItem extends React.Component {
@@ -18,19 +20,33 @@ class AddItem extends React.Component {
     }
     addToBasket() {
         var product = this.props.productData,
-            currProdQty = this.props.currentQty,
-            unitOfMeasure = product.unitOfMeasure == "kgs" ? "kgs" : "pcs";
+            oldProductVal = 0,
+            newProductVal = 0,
+            unitOfMeasure = product.unitOfMeasure == "kgs" ? "kgs" : "pcs",
+            oldBasketItems = JSON.parse(TrolleyStore.getBasketItem());
+        for(var i=0;i<oldBasketItems.items.length;i++){
+           if(oldBasketItems.items[i]['product']['id'] == product.id){
+               oldProductVal = oldBasketItems.items[i]['quantity'];
+           }
+
+        }
+        newProductVal = oldProductVal + this.state.quantity / this.props.defaultQty;
+        console.log("oldvalue - "+ oldProductVal + "newvalue - "+ newProductVal)
+
         var productData = {
             "items": [{
                 id: product.id,
                 newUnitChoice: unitOfMeasure,
                 oldUnitChoice: unitOfMeasure,
-                newValue: currProdQty,
-                oldValue: 0
+                newValue: newProductVal,
+                oldValue: oldProductVal
             }]
         };
         TrolleyAction.addToMiniTrolley(productData);
+
         React.render(<MiniBasket />, document.getElementById('miniBasket'));
+        TrolleyAction.getBasketData(false);
+
     }
 
 

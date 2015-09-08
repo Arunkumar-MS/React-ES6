@@ -226,8 +226,8 @@ footer li{
     background: transparent url("../image/miniBasket.png") no-repeat scroll center;
     color: #2E6DA4;
     height: 45px;
-    font-size: 16px;
-    padding-top: 10px;
+    font-size: 15px;
+    padding-top: 8px;
 }
 #miniBasket .miniBasketBody h2, #miniBasket .miniBasketBody dl{
     padding: 0 10px;

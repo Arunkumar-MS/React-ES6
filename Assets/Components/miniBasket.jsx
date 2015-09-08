@@ -12,24 +12,19 @@ class MiniBasket extends React.Component {
                     totalPrice: 0.00};
 
       this._onTrolleyChange = this._onTrolleyChange.bind(this);
-      this._onAddMiniTrolleyChange = this._onAddMiniTrolleyChange.bind(this);
+    //  this._onAddMiniTrolleyChange = this._onAddMiniTrolleyChange.bind(this);
     }
 
-    _onAddMiniTrolleyChange(){
-       let data = getMiniTrolleyData();
 
-        this.setState({
-
-            itemsCount: data.trolley.items.length,
-            totalPrice: data.trolley.guidePrice
-
-        });
-
-    }
     _onTrolleyChange(e) {
-      let basketItems = JSON.parse(TrolleyStore.getBasketItem());
+      let basketItems = JSON.parse(TrolleyStore.getBasketItem()),
+          totalItems=0;
+        for(var i=0;i<basketItems.items.length;i++){
+            totalItems = totalItems + basketItems.items[i]['quantity'];
+
+        }
       this.setState({
-            itemsCount: basketItems.items.length,
+            itemsCount: totalItems,
             totalPrice: basketItems.guidePrice
 
         });
@@ -39,12 +34,12 @@ class MiniBasket extends React.Component {
       }
     }
     componentWillMount() {
-        TrolleyStore.addChangeListener(this._onAddMiniTrolleyChange, 'AddMiniTrolleyChange');
+       // TrolleyStore.addChangeListener(this._onAddMiniTrolleyChange, 'AddMiniTrolleyChange');
         TrolleyStore.addChangeListener(this._onTrolleyChange);
     }
     componentWillUnmount() {
-        TrolleyStore.removeChangeListener(this._onAddMiniTrolleyChange, 'AddMiniTrolleyChange');
-        TrolleyStore.removeChangeListener(this._onTrolleyChange);
+        //TrolleyStore.removeChangeListener(this._onAddMiniTrolleyChange, 'AddMiniTrolleyChange');
+       TrolleyStore.removeChangeListener(this._onTrolleyChange);
     }
     handleClick(){
      TrolleyAction.getBasketData();
