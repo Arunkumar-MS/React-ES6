@@ -28,13 +28,15 @@ class SuperDepartment extends React.Component {
             }
         };
         document.getElementById('departmentMenu').style.display='block';
+        document.getElementById('departmentMenuBg').style.display='block';
 
         
         var superDepartmentMenu = superDepartment.map(function(sd){
-            return  (<li><a data-toggle="dropdown" className="dropdown-toggle" href="#" onClick={self.renderDepartment.bind(this,self.props.menuItems)}>{sd.name}<b className="caret"></b></a></li>);
+            return  (<li><a data-toggle="dropdown" className="dropdown-toggle" href="#" onClick={self.renderDepartment.bind(this,self.props.menuItems)}>{sd.name}</a></li>);
 
         });
         return (<ul role="menu" className="dropdown-menu">
+                <li id="closeSuperDept" className="closeSuperDept"><a className="closeSuperDept" href="#"><span className="glyphicon  glyphicon-chevron-left pull-right" aria-hidden="true"></span> Groceries</a></li>
                 {superDepartmentMenu}
             </ul>
         )

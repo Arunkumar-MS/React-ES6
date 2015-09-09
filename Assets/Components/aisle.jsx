@@ -36,13 +36,16 @@ class Aisle extends React.Component {
     render() {
         var self=this;
         document.getElementById('aisle').style.display='block';
+        //document.getElementById('subDepartmentMenu').style.display='none';
+        //document.getElementById('departmentMenu').style.display='none';
 
         var aisleMenu = this.props.aisles.map(function(sd){
-            return (<a onClick={self.getProductByCategoryId.bind(this)}  title={sd.catId}>{sd.name}</a>);
+            return (<li><a href="#"  onClick={self.getProductByCategoryId.bind(this)}  title={sd.catId}>{sd.name}</a></li>);
         });
-        return (<div>
+        return (<ul role="menu" className="dropdown-menu">
+                    <li id="closeAisle"><a href="#" className="closeAisle"><span className="glyphicon  glyphicon-chevron-left pull-right" aria-hidden="true"></span> Back</a></li>
                 {aisleMenu}
-            </div>
+                </ul>
         )
 
     }
