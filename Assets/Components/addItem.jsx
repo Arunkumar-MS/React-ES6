@@ -44,8 +44,7 @@ class AddItem extends React.Component {
         };
         TrolleyAction.addToMiniTrolley(productData);
 
-        React.render(<MiniBasket />, document.getElementById('miniBasket'));
-        TrolleyAction.getBasketData(false);
+
 
     }
 
@@ -75,9 +74,12 @@ class AddItem extends React.Component {
             </div>
         )
     }
+
     componentWillMount() {
         this.setState({quantity: this.props.defaultQty}) ;
+
     }
+
 }
 
 export default AddItem;
