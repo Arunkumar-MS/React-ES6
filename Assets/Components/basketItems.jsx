@@ -13,7 +13,7 @@ class BasketItems extends React.Component {
                             <div className="description">
                                 <a>{item.product.description}</a>
                             </div>
-                            <div className="price">{item.product.price} zł/Piece</div>
+                            <div className="price">{item.product.unitPrice} zł/{item.product.unitOfMeasure}</div>
                         </div>
                         <div className="col-md-3 placeholder">
                             <button type="button" className="btn btn-danger pull-right" aria-label="Left Align">
@@ -22,7 +22,7 @@ class BasketItems extends React.Component {
                             <div className="quantity">            
                                 <div className="input-group input-group-sm col-lg-8 pull-right margin5">
                                   <span className="input-group-addon" id="sizing-addon3">Total</span>
-                                  <input type="text" className="form-control text-right" placeholder="24" aria-describedby="sizing-addon3" />
+                                  <span className="form-control text-right">{item.cost} zł</span>
                                 </div>
                                 <div className="row">
                                     <div className="col-lg-8 pull-right">
@@ -46,6 +46,7 @@ class BasketItems extends React.Component {
     
     render() {
         document.getElementById('trolleyItems').style.display = 'block';
+         document.getElementById('orderSummary').style.display = 'block';
         document.getElementById('result').style.display = 'none';
         var self = this;
         return (<div className="col-md-12">

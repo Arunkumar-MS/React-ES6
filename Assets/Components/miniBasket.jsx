@@ -30,7 +30,7 @@ class MiniBasket extends React.Component {
         });
       if(TrolleyStore.getTrolleyToBeRendered()){
         React.render(<BasketItems basketItems={basketItems} />, document.getElementById('trolleyItems'));
-        React.render(<OrderSummary />, document.getElementById('orderSummary'));
+        React.render(<OrderSummary totalPrice={basketItems.guidePrice} totalItems={totalItems} />, document.getElementById('orderSummary'));
       }
     }
     componentWillMount() {

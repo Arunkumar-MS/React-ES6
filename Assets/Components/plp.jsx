@@ -16,6 +16,7 @@ class Result1 extends React.Component {
 
     render() {
          document.getElementById('trolleyItems').style.display = 'none';
+         document.getElementById('orderSummary').style.display = 'none';
         document.getElementById('result').style.display = 'block';
         return (
              <div>
