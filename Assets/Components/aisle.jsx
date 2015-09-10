@@ -35,9 +35,8 @@ class Aisle extends React.Component {
     }
     render() {
         var self=this;
+        //window.location.href = '#navigationMenu';
         document.getElementById('aisle').style.display='block';
-        //document.getElementById('subDepartmentMenu').style.display='none';
-        //document.getElementById('departmentMenu').style.display='none';
 
         var aisleMenu = this.props.aisles.map(function(sd){
             return (<li><a href="#"  onClick={self.getProductByCategoryId.bind(this)}  title={sd.catId}>{sd.name}</a></li>);

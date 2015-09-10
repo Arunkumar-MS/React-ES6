@@ -27,12 +27,13 @@ class SuperDepartment extends React.Component {
                     superDepartment.push(item);
             }
         };
+        //window.location.href = '#navigationMenu';
         document.getElementById('departmentMenu').style.display='block';
         document.getElementById('departmentMenuBg').style.display='block';
 
         
         var superDepartmentMenu = superDepartment.map(function(sd){
-            return  (<li><a data-toggle="dropdown" className="dropdown-toggle" href="#" onClick={self.renderDepartment.bind(this,self.props.menuItems)}>{sd.name}</a></li>);
+            return  (<li><a data-toggle="dropdown" className="dropdown-toggle" href="#navigationMenu" onClick={self.renderDepartment.bind(this,self.props.menuItems)}>{sd.name}</a></li>);
 
         });
         return (<ul role="menu" className="dropdown-menu">

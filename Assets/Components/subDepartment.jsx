@@ -18,15 +18,16 @@ class SubDepartment extends React.Component {
     }
    render() {
         var self=this;
-        //document.getElementById('departmentMenu').style.display='none';
+        //window.location.href = '#navigationMenu';
         document.getElementById('subDepartmentMenu').style.display='block';
+        
         
 
         var subDepartmentMenu = this.props.departments.map(function(sd){
-            return (<li><a data-toggle="dropdown" className="dropdown-toggle" href="#" onClick={self.renderAisle.bind(this,self.props.menuItems)}>{sd.name}</a></li>);
+            return (<li><a data-toggle="dropdown" className="dropdown-toggle" href="#navigationMenu" onClick={self.renderAisle.bind(this,self.props.menuItems)}>{sd.name}</a></li>);
         });
         return (<ul role="menu" className="dropdown-menu">
-                <li id="closeSubDept"><a className="closeSubDept" href="#"><span className="glyphicon  glyphicon-chevron-left pull-right" aria-hidden="true"></span> Back</a></li>
+                <li id="closeSubDept" className="closeSubDept"><a className="closeSubDept" href="#"><span className="glyphicon  glyphicon-chevron-left pull-right" aria-hidden="true"></span> Back</a></li>
                 {subDepartmentMenu}
             </ul>
         )
