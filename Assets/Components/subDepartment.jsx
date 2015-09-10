@@ -10,6 +10,7 @@ class SubDepartment extends React.Component {
    render() {
         var self=this;
         document.getElementById('subDepartmentMenu').style.display='block';
+        document.getElementById('aisle').style.display='none';
         let departments = MenuStore.getDepartmentItem(this.props.department);
         var subDepartmentMenu = departments.map(function(sd){
             return (<li><a data-toggle="dropdown" className="dropdown-toggle" href="#navigationMenu" onClick={self.renderAisle.bind(this)}>{sd.name}</a></li>);
