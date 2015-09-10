@@ -286,15 +286,17 @@ footer li{
     width:100%;
     list-style-type: none;
     position: relative;
+    left: 0;
 }
 #departmentMenu ul li a, #subDepartmentMenu ul li a, #aisle ul li a
 {
     border-bottom: #d9d9d9 solid 1px;
     min-height: 40px;
     display: block;
-    padding: 2px 5px;
+    padding: 2px 15px;
     cursor: pointer;
     line-height: 30px;
+    font-size: 14px;
 }
 #departmentMenu ul li a:hover, #departmentMenu ul li a:focus,  
 #subDepartmentMenu ul li a:hover, #subDepartmentMenu ul li a:focus,
@@ -303,11 +305,12 @@ footer li{
     border-bottom: #d9d9d9 solid 1px;
     min-height: 40px;
     display: block;
-    padding: 2px 5px;
+    padding: 2px 15px;
     cursor: pointer;
     line-height: 30px;
-    background-color: #2E6DA4;
-    color: #fff;
+    background-color: #d7ecff;
+    color: #000;
+    font-size: 14px;
 }
 #departmentMenu div a, #subDepartmentMenu div a,  #aisle div a{
     border-bottom: #d9d9d9 solid 1px;
@@ -325,8 +328,8 @@ footer li{
     padding: 2px 5px;
     cursor: pointer;
     line-height: 30px;
-    background-color: #2E6DA4;
-    color: #fff;
+    background-color: #d7ecff;
+    color: #000;
 }
 #navigationMenu{
     margin-top: 15px;
@@ -379,9 +382,7 @@ footer li{
     padding-left: 0px;
     width: 100%;
 }
-#subnavigation{
-    margin-top: -23px;
-}
+
 
 .open .dropdown-menu .dropdown-menu {
     display: block;
@@ -422,6 +423,7 @@ footer li{
     width:300px;
     list-style-type: none;
     position: relative;
+    left: 0;
     }
     #subDepartmentMenu{
         width:300px;
@@ -437,9 +439,83 @@ footer li{
     border:none;
 }
 @media (min-width: 768px){
-.navbar-nav{
-    margin-top: 6px;
+    .navbar-nav
+    {
+        margin-top: 6px;
+    }
+    #subnavigation
+    {
+        margin-top: -23px;
+        overflow: hidden;
+        height: auto;
+        width: 100%;
+        position: relative;
+        background-color: #f1f1f1;
+    }
 }
+@media screen and (min-width: 768px) {
+    #closeSuperDept, #closeSubDept, #closeAisle
+    {
+        display: none;
+    }
+    #departmentMenu, #subDepartmentMenu, #aisle {
+        display: block;
+    }
+    #departmentMenu
+    {
+        overflow: hidden;
+        float: left;
+        position: relative;
+    }
+    #subDepartmentMenu
+    {
+        overflow: hidden;
+        float: left;
+        position: relative;
+    }
+}
+@media screen and (max-width: 767px) {
+    #subnavigation
+    {
+        margin-top: -23px;
+    }
+    #departmentMenu {
+        top: -191px;
+        position: relative;
+    }
+    #subDepartmentMenu
+    {
+        position: relative;
+        top: -191px; /*-543px;*/
+        z-index: 9999;
+    }
+    #aisle
+    {
+        position: relative;
+        top: -192px;
+        z-index: 9999;
+    }
+    #departmentMenuBg{
+        display: block;
+    }
+    .closeSuperDept .pull-right, .closeSubDept .pull-right, .closeAisle .pull-right{
+        padding: 8px;        
+    }
+    #closeSuperDept, #closeSubDept, #closeAisle
+    {
+        display: block;
+    }
+    
+}   
+
+.closeSuperDept, .closeSubDept, .closeAisle
+{
+    background-color: #ee1c2e;color: #fff!important;font-size: 16px!important;
+}
+.closeSubDept:hover, #departmentMenu ul li a.closeSuperDept:hover, .closeSubDept:hover, #subDepartmentMenu ul li a.closeSubDept:hover, 
+ #aisle ul li a.closeAisle:hover
+{
+    background-color: #ed071b;
 }
 .navbar-default .navbar-nav .open .dropdown-menu > li > a{
     color: #777;
@@ -597,4 +673,9 @@ footer li{
         display: table-cell;
         text-align: right;
     }   
-                                        /*Basket - Order Summary Ends*/                    
+                                        /*Basket - Order Summary Ends*/                  
+
+
+
+
+                                       
