@@ -1,39 +1,20 @@
 import React from 'react';
 import SubDepartment from "./subDepartment";
-var currentTarget;
+import MenuStore from './Store/menuStore';
 
 class SuperDepartment extends React.Component {
-    renderDepartment(menuItems,e){
-        document.getElementById('aisle').style.display='none';
-        var department = e.currentTarget.text;
-        var departments = [];
-        for (var i = 0; i<= menuItems.length - 1; i++) {
-            var item = menuItems[i];
-            if(item.catId == null && item.parent== department)
-            {
-                departments.push(item);
-            }
-        };
-
-        console.log(departments);
-        React.render(<SubDepartment departments={departments} menuItems={menuItems} />,  document.getElementById('subDepartmentMenu'));
+    renderDepartment(e){
+        let department =  e.currentTarget.text;
+        React.render(<SubDepartment department={department} />,  document.getElementById('subDepartmentMenu'));
     }
     render() {
-        var self=this;
-        var superDepartment = [];
-        for (var i=0; i < this.props.menuItems.length ; i++) {
-                var item = this.props.menuItems[i];
-                if(item.catId == null && item.parent==null){
-                    superDepartment.push(item);
-            }
-        };
-        //window.location.href = '#navigationMenu';
+        let self = this;
         document.getElementById('departmentMenu').style.display='block';
         document.getElementById('departmentMenuBg').style.display='block';
 
-        
+        var superDepartment = MenuStore.getSuperDeapartmentItem();
         var superDepartmentMenu = superDepartment.map(function(sd){
-            return  (<li><a data-toggle="dropdown" className="dropdown-toggle" href="#navigationMenu" onClick={self.renderDepartment.bind(this,self.props.menuItems)}>{sd.name}</a></li>);
+            return  (<li><a data-toggle="dropdown" className="dropdown-toggle" href="#navigationMenu" onClick={self.renderDepartment.bind(this)}>{sd.name}</a></li>);
 
         });
         return (<ul role="menu" className="dropdown-menu">

@@ -1,36 +1,35 @@
 import React from 'react';
 import request from 'request';
-import SuperDepartment from './superDepartment';
-import MenuStore from './Store/menuStore';
 import MenuAction from './Action/menuAction';
+import MenuItem from './menuItem';
 
-class Navigation extends React.Component {
+class Menu extends React.Component {
     constructor() {
         super();
+        this.state = {test: 'hello'};
     }
     componentWillMount() {
-        MenuAction.getMenuData();
+         MenuAction.getMenuData();   
     }
-    handleClick(name, e) {
-        document.getElementById('departmentMenu').style.display='none';
-        document.getElementById('subDepartmentMenu').style.display='none';
-        document.getElementById('aisle').style.display='none';
-        if(name == 'Groceries'){
-            document.getElementById('subnavigation').style.display = 'block';
-            React.render(<SuperDepartment />, document.getElementById('departmentMenu'));
+    handleMenuClick(name, e){
+        if(name === 'Groceries'){
+            React.render(<MenuItem />, e.currentTarget.lastChild);
         }
     }
-    
     renderMenu(item){
         var caretClassName ='';
         if(item == 'Groceries'){
             caretClassName = "caret";
         }
-        return (<li className="dropdown" onClick={this.handleClick.bind(this, item)}>
-            <a data-toggle="dropdown" className="dropdown-toggle" href="#">{item}<b className={caretClassName}></b> </a>
-        </li>);
+        
+        return (<li className="dropdown" onClick={this.handleMenuClick.bind(this,item)}>
+                  <a data-toggle="dropdown" className="dropdown-toggle" href="#">{item}<b className={caretClassName}></b></a>
+                  <ul className="dropdown-menu">
+                  </ul>
+                </li>);
     }
     render() {
+    
         var self = this;
         return (
             <nav className="navbar navbar-default">
@@ -55,6 +54,6 @@ class Navigation extends React.Component {
     }
 }
 
-Navigation.defaultProps = {items: ['Groceries','Promotions','Favourites','MyOrder']};
+Menu.defaultProps = {items: ['Groceries','Promotions','Favourites','MyOrder']};
 
-export default Navigation;
+export default Menu;

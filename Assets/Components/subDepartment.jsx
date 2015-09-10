@@ -1,30 +1,18 @@
 import React from 'react';
 import Aisle from "./aisle";
+import MenuStore from './Store/menuStore';
 
 class SubDepartment extends React.Component {
-    renderAisle(menuItems,e){
+    renderAisle(e){
         var aisle = e.currentTarget.text;
-        var aisles = [];
-        for (var i = 0; i<= menuItems.length - 1; i++) {
-            var item = menuItems[i];
-            if(item.catId != null && item.parent == aisle)
-            {
-                aisles.push(item);
-            }
-        };
-
-        console.log(aisles);
-        React.render(<Aisle aisles={aisles} />, document.getElementById('aisle'));
+        React.render(<Aisle aisle={aisle} />, document.getElementById('aisle'));
     }
    render() {
         var self=this;
-        //window.location.href = '#navigationMenu';
         document.getElementById('subDepartmentMenu').style.display='block';
-        
-        
-
-        var subDepartmentMenu = this.props.departments.map(function(sd){
-            return (<li><a data-toggle="dropdown" className="dropdown-toggle" href="#navigationMenu" onClick={self.renderAisle.bind(this,self.props.menuItems)}>{sd.name}</a></li>);
+        let departments = MenuStore.getDepartmentItem(this.props.department);
+        var subDepartmentMenu = departments.map(function(sd){
+            return (<li><a data-toggle="dropdown" className="dropdown-toggle" href="#navigationMenu" onClick={self.renderAisle.bind(this)}>{sd.name}</a></li>);
         });
         return (<ul role="menu" className="dropdown-menu">
                 <li id="closeSubDept" className="closeSubDept"><a className="closeSubDept" href="#"><span className="glyphicon  glyphicon-chevron-left pull-right" aria-hidden="true"></span> Back</a></li>

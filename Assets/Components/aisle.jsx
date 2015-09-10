@@ -2,7 +2,8 @@ import React from 'react';
 import request from 'request';
 import Result1 from './plp';
 import {searchData , getProducts} from './Action/searchAction';
-import eventHandler from './Store/searchStore';
+import SearchStore from './Store/searchStore';
+import MenuStore from './Store/menuStore';
  var categoryId = '';
 class Aisle extends React.Component {
    
@@ -22,11 +23,11 @@ class Aisle extends React.Component {
     }
 
     componentWillMount() {
-        eventHandler.addChangeListener(this._onCategoryChange);
+        SearchStore.addChangeListener(this._onCategoryChange);
     }
 
     componentWillUnmount() {
-        eventHandler.removeChangeListener(this._onCategoryChange);
+        SearchStore.removeChangeListener(this._onCategoryChange);
     }
     getProductByCategoryId(e){
         categoryId = e.currentTarget.title;
@@ -36,8 +37,8 @@ class Aisle extends React.Component {
     render() {
         var self=this;
         document.getElementById('aisle').style.display='block';
-
-        var aisleMenu = this.props.aisles.map(function(sd){
+        let aisles = MenuStore.getAisle(this.props.aisle);
+        var aisleMenu = aisles.map(function(sd){
             return (<li><a href="#"  onClick={self.getProductByCategoryId.bind(this)}  title={sd.catId}>{sd.name}</a></li>);
         });
         return (<ul role="menu" className="dropdown-menu">
