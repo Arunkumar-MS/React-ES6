@@ -39,13 +39,12 @@ class Result extends React.Component {
 
             <div className="row">
 
-                <button type="button" style={this.state.showLogin} className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Login</button>
+                <button type="button" style={this.state.showLogin} className="btn btn-primary homepageLoginFix" data-toggle="modal" data-target="#myModal">Login</button>
 
                 <div>
                     <div className="input-group">
                         <input ref="search" type="text" className="form-control"
                                placeholder="Search for items like - Milk"/>
-
                         <span className="input-group-btn">
                     <button className="btn btn-primary" type="button" onClick={this.handleClick.bind(this)}>Search
                     </button>

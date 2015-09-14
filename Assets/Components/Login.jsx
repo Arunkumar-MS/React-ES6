@@ -59,7 +59,7 @@ class Login extends React.Component {
                           <div className="modal fade" id="myModal" role="dialog">
                               <div className="modal-dialog">
                                   <div className="modal-content">
-                                      <div className="modal-header">
+                                      <div className="modal-header loginTopheader">
                                           <button type="button" className="close" data-dismiss="modal">&times;</button>
                                           <h4 className="modal-title">Please Sign in</h4>
                                           <div className="alert-danger">
@@ -75,8 +75,9 @@ class Login extends React.Component {
                                                   <input className="form-control" placeholder="Password" ref="password" type="password">
                                                   </input></div>
 
-                                              <input className="btn btn-lg btn-success btn-block"  onClick={this.handleClick.bind(this)} type="button" value="Login">
-                                              </input>
+                                              <input className="btn btn-primary col-xs-6"   onClick={this.handleClick.bind(this)} type="button" value="Login">
+                                              </input> 
+                                              <input className="btn btn-danger col-xs-6 lesswidth" data-dismiss="modal" type="button" value="Cancel"></input>
 
                                           </fieldset>
                                       </div>

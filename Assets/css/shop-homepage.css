@@ -507,7 +507,31 @@ footer li{
     }
     
 }   
-
+                                        /*Home page and Login FIX Starts*/
+.homepageLoginFix{
+    display: inline-block;
+    float: right;
+    margin-left: 10px;
+}
+.homepageMiniBask{
+    float: right;
+    position: absolute;
+    right: 30px;
+    top: 25px;
+}
+.loginTopheader{
+    background-color: #337ab7;
+    color: #fff;
+}
+.modal-header .close{
+    color: #fff;
+    opacity: 1;
+}
+.lesswidth{
+    width: 49%;
+    margin-left: 3px;
+}
+                                        /*Home page and Login FIX Starts*/
 .closeSuperDept, .closeSubDept, .closeAisle
 {
     background-color: #ee1c2e;color: #fff!important;font-size: 16px!important;
