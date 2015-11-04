@@ -13,15 +13,13 @@ class ProductDetail extends React.Component {
                 <div className="productDetailPage">
                     <div className="thumbnail col-lg-4 col-md-4 col-sm-4 col-sx-12">
                         <img className="img-responsive"
-                             src='https://secure.ce-tescoassets.com/assets/PL/004/5900497312004/ShotType1_328x328.jpg'
-                             alt="product"></img>
+                             src={this.props.product.defaultImageUrl}
+                             alt={this.props.product.shortDescription}></img>
 
                         <div className="caption-full">
 
-                            <h4 className="pull-right"> $20 </h4>
-                            <h4>Pepsi Cola Drink 2 L</h4>
-
-                            <p> Pepsi Cola Drink 2 L </p>
+                            <h4 className="pull-right"> {this.props.product.price} </h4>
+                            <h4>{this.props.product.shortDescription}</h4>
 
                         </div>
                         <div className="productBtm col-lg-12 col-md-12 col-sm-12 col-sx-12">
