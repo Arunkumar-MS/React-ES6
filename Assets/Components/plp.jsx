@@ -10,8 +10,8 @@ class Result1 extends React.Component {
     constructor(props) {
         super(props);
     }
-    productDiscription(id) {
-        React.render(<ProductDetail />, document.getElementById('result'));
+    productDiscription(product) {
+        React.render(<ProductDetail product={product} />, document.getElementById('result'));
     }
 
     render() {
@@ -31,9 +31,7 @@ class Result1 extends React.Component {
                                 <img className="img-responsive" src={item.product.defaultImageUrl} alt="product"></img>
 
                                 <div className="caption">
-
-
-                                    <h5><a onClick={this.productDiscription.bind(item.product.id)}
+                                    <h5><a onClick={this.productDiscription.bind(this, item.product)}
                                            href="#">{item.product.title}</a></h5>
                                     <h5 ><strong>$ {item.product.price}</strong> </h5>
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import AddItem from './addItem';
 
 
 class ProductDetail extends React.Component {
@@ -9,8 +10,8 @@ class ProductDetail extends React.Component {
 
 
             <div>
-                <div className="col-md-9">
-                    <div className="thumbnail">
+                <div className="productDetailPage">
+                    <div className="thumbnail col-lg-4 col-md-4 col-sm-4 col-sx-12">
                         <img className="img-responsive"
                              src='https://secure.ce-tescoassets.com/assets/PL/004/5900497312004/ShotType1_328x328.jpg'
                              alt="product"></img>
@@ -21,10 +22,17 @@ class ProductDetail extends React.Component {
                             <h4>Pepsi Cola Drink 2 L</h4>
 
                             <p> Pepsi Cola Drink 2 L </p>
-                            <input type="button" className="btn btn-primary add" value="add">
-                            </input>
+
+                        </div>
+                        <div className="productBtm col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                            <AddItem key={this.props.product.id} defaultQty={this.props.product.averageWeight} productData={this.props.product}/>
+
                         </div>
                     </div>
+                    <div>
+                        Product description
+                        </div>
+
                 </div>
             </div>
 
