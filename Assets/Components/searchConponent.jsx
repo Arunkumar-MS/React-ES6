@@ -39,8 +39,12 @@ class Result extends React.Component {
 
             <div className="row">
 
-                <button type="button" style={this.state.showLogin} className="btn btn-primary homepageLoginFix" data-toggle="modal" data-target="#myModal">Login</button>
-
+                
+                
+                <div className="btn-group inlines" role="group" aria-label="Basic example">
+                  <button type="button" style={this.state.showLogin} className="btn btn-primary homepageLoginFix" data-toggle="modal" data-target="#myModal">Login</button>
+                  <button type="button" style={this.state.showLogin} className="btn btn-primary label-default" data-toggle="modal" data-target="#myRegistrationModel">Register</button>
+                </div>
                 <div>
                     <div className="input-group">
                         <input ref="search" type="text" className="form-control"

@@ -699,7 +699,16 @@ footer li{
     }   
                                         /*Basket - Order Summary Ends*/                  
 
+.inlines{
+    display: inline;
+    float: right;
+    margin-left: 20px;
+}
 
+.errormessage{
+
+    color:#ff0000;
+}
 
 
                                        
