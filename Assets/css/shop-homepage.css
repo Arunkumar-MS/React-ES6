@@ -730,6 +730,7 @@ footer li{
 .euplData .groupItem .nameTextItems,
 .euplData .groupItem .nameLookups,
 .euplData .groupItem .statements,
+.euplData .groupItem .adultInfo,
 .euplData .groupItem .longTextItems{
     padding: 10px;
 }
