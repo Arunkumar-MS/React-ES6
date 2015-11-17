@@ -710,5 +710,33 @@ footer li{
     color:#ff0000;
 }
 
+                                     /* PDP styles */
+.euplData{
+    padding: 0 0 0 10px;
+}
+.euplData .groupItem{
+    padding: 0 0 10px;
+    /* margin-left: 10px; */
+    border: 1px solid #D9EDF7;
+
+}
+.euplData h3{
+    margin: 0;
+    padding: 10px;
+    background-color: #D9EDF7;
+}
+.euplData .groupItem .memo,
+.euplData .groupItem .tabularContent,
+.euplData .groupItem .nameTextItems,
+.euplData .groupItem .nameLookups,
+.euplData .groupItem .statements,
+.euplData .groupItem .longTextItems{
+    padding: 10px;
+}
+.tabularContent td,
+.tabularContent th{
+    padding: 5px;
+}
+
 
                                        

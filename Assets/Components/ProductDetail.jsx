@@ -9,7 +9,8 @@ class ProductDetail extends React.Component {
         super(props);
         this.state = {productImg: '',
             shortDesc: "some text",
-            price: 0.00};
+            price: 0.00,
+            euplData: "Loading product data..."};
         ProductDetailAction.getProductDetail(this.props.product.id);
 
         this._onProdChange = this._onProdChange.bind(this);
@@ -21,7 +22,8 @@ class ProductDetail extends React.Component {
         this.setState({
             productImg: productDetails.product.defaultImageUrl,
             shortDesc: productDetails.product.description,
-            price: productDetails.product.price
+            price: productDetails.product.price,
+            euplData: productDetails.brandBankAttributes
         });
     }
     componentWillMount() {
@@ -48,8 +50,8 @@ class ProductDetail extends React.Component {
 
                         <div className="caption-full">
 
-                            <h4 className="pull-right"> {this.state.price}</h4>
-                            <h4>{this.state.shortDesc}</h4>
+                            <h4> {this.state.price}</h4>
+                            <h4><em>{this.state.shortDesc}</em></h4>
 
                         </div>
                         <div className="productBtm col-lg-12 col-md-12 col-sm-12 col-sx-12">
@@ -57,9 +59,8 @@ class ProductDetail extends React.Component {
 
                         </div>
                     </div>
-                    <div>
-                        Product description
-                        </div>
+
+                    <div className="euplData col-lg-8 col-md-4 col-sx-12" dangerouslySetInnerHTML={{__html: this.state.euplData}}></div>
 
                 </div>
             </div>
