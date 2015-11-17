@@ -55,14 +55,15 @@ exports.search=function (req, res) {
 }
 
 exports.productDetails=function (req, res) {
+
     var Header = {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'Ighs-Language': 'en-GB',
+        'Ighs-Language': 'pl-PL',
         'Ighs-Appkey': config.Appkey
     };
     request.get({
-            url: config.ProductDetail + req.query.id,
+            url: config.ProductDetail + req.query.productId,
             headers: Header,
             rejectUnauthorized: false
         },
