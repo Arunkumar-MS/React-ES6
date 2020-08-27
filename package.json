@@ -15,7 +15,7 @@
     "gulp": "^3.9.0",
     "gulp-debug": "^2.0.1",
     "gulp-util": "^3.0.3",
-    "vinyl-source-stream": "^1.1.0",
+    "vinyl-source-stream": "^2.0.0",
     "watchify": "^2.3.0",
     "webpack": "^1.7.3"
   },
