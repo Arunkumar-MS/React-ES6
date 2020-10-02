@@ -26,6 +26,17 @@
         "doc",
         "test"
       ]
+    },
+    {
+      "login": "murariamar",
+      "name": "murariamar",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/7846423?v=4",
+      "profile": "https://github.com/murariamar",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
