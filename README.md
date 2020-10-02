@@ -1,6 +1,6 @@
 # React-ES6
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 =============================================
 Demo & setup Install Instructions
@@ -43,6 +43,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/rakesh-nayak"><img src="https://avatars3.githubusercontent.com/u/11978348?v=4" width="100px;" alt=""/><br /><sub><b>Rakesh Nayak</b></sub></a><br /><a href="https://github.com/Arunkumar-MS/React-ES6/commits?author=rakesh-nayak" title="Code">💻</a> <a href="https://github.com/Arunkumar-MS/React-ES6/commits?author=rakesh-nayak" title="Documentation">📖</a> <a href="https://github.com/Arunkumar-MS/React-ES6/commits?author=rakesh-nayak" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://github.com/maheshmadhusudan"><img src="https://avatars1.githubusercontent.com/u/7791722?v=4" width="100px;" alt=""/><br /><sub><b>maheshmadhusudan</b></sub></a><br /><a href="https://github.com/Arunkumar-MS/React-ES6/commits?author=maheshmadhusudan" title="Code">💻</a> <a href="https://github.com/Arunkumar-MS/React-ES6/commits?author=maheshmadhusudan" title="Documentation">📖</a> <a href="https://github.com/Arunkumar-MS/React-ES6/commits?author=maheshmadhusudan" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://github.com/murariamar"><img src="https://avatars3.githubusercontent.com/u/7846423?v=4" width="100px;" alt=""/><br /><sub><b>murariamar</b></sub></a><br /><a href="https://github.com/Arunkumar-MS/React-ES6/commits?author=murariamar" title="Code">💻</a> <a href="https://github.com/Arunkumar-MS/React-ES6/commits?author=murariamar" title="Documentation">📖</a> <a href="https://github.com/Arunkumar-MS/React-ES6/commits?author=murariamar" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/priyabratabiswal"><img src="https://avatars0.githubusercontent.com/u/10769054?v=4" width="100px;" alt=""/><br /><sub><b>Priyabrata Biswal</b></sub></a><br /><a href="https://github.com/Arunkumar-MS/React-ES6/commits?author=priyabratabiswal" title="Code">💻</a> <a href="https://github.com/Arunkumar-MS/React-ES6/commits?author=priyabratabiswal" title="Documentation">📖</a> <a href="https://github.com/Arunkumar-MS/React-ES6/commits?author=priyabratabiswal" title="Tests">⚠️</a></td>
   </tr>
 </table>
 
