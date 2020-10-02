@@ -37,6 +37,17 @@
         "doc",
         "test"
       ]
+    },
+    {
+      "login": "priyabratabiswal",
+      "name": "Priyabrata Biswal",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/10769054?v=4",
+      "profile": "https://github.com/priyabratabiswal",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
